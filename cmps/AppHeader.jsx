@@ -8,6 +8,7 @@ class _AppHeader extends React.Component {
         bookCount: 0, 
     }
 
+    
     componentDidMount() {
         this.removeEvent = eventBusService.on('book-count', (bookCount) => {
             this.setState({bookCount})
