@@ -7,6 +7,10 @@ import { MissKeep } from './apps/keep/MissKeep.jsx'
 import { AboutUs } from './pages/AboutUs.jsx'
 import { Home } from './pages/Home.jsx'
 import { AppHeader } from './cmps/AppHeader.jsx'
+import { NoteTxt } from "./pages/NoteTxt.jsx"
+import { NoteTodos } from "./pages/NoteTodos.jsx"
+import { NoteImg } from "./pages/NoteImg.jsx"
+import { NoteVideo } from "./pages/NoteVideo.jsx"
 
 export function App() {
     return (
@@ -19,6 +23,10 @@ export function App() {
                     {/* <Route component={BookEdit} path="/book/edit/:bookId?"/> */ }
                     <Route component={ EmailDetails } path="/mail/:emailId" />
                     <Route component={ EmailApp } path="/mail" />
+                    <Route component={ NoteTxt } path="/keep/notetxt" />
+                    <Route component={ NoteTodos } path="/keep/notetodos" />
+                    <Route component={ NoteImg } path="/keep/noteimg" />
+                    <Route component={ NoteVideo } path="/keep/notevideo" />
                     <Route component={ MissKeep } path="/keep" />
                     {/* <Route component={BookShopApp} path="/book"/> */ }
                     <Route component={ AboutUs } path="/about" />
