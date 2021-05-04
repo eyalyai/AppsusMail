@@ -1,4 +1,4 @@
-import {bookService} from '../apps/email/services/book.service.js'
+import {bookService} from '../apps/email/services/email.service.js'
 
 export class BookEdit extends React.Component {
     state = {
