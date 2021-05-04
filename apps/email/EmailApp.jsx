@@ -34,21 +34,16 @@ export class EmailApp extends React.Component {
         const { emails, filterBy } = this.state
         if (!emails) return <div>Loading...</div>
         return (
-            <Router>
-                <div className="email-app">
-                    <h1>Email app</h1>
-                    <section className="main-email">
-                        {/* <BookFilter onSetFilter={ this.onSetFilter } /> */ }
-                        <div className="mail-container">
-                            <EmailList emails={ emails } />
-                            {/* { this.state.selectedBook && <BookDetails book={ selectedBook } onUnSelectBook={ this.onUnSelectBook } getPriceColor={ this.getPriceColor } /> } */ }
-                        </div>
-                    </section>
-                </div>
-                <Switch>
-                    <Route component={ EmailDetails } path="/mail/:bookId?" /> \
-                </Switch>
-            </Router>
+            <div className="email-app">
+                <h1>Email app</h1>
+                <section className="main-email">
+                    {/* <BookFilter onSetFilter={ this.onSetFilter } /> */ }
+                    <div className="mail-container">
+                        <EmailList emails={ emails } />
+                        {/* { this.state.selectedBook && <BookDetails book={ selectedBook } onUnSelectBook={ this.onUnSelectBook } getPriceColor={ this.getPriceColor } /> } */ }
+                    </div>
+                </section>
+            </div>
         )
     }
 }

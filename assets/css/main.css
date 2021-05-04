@@ -1,4 +1,6 @@
-    @import "/apps/email/assets/main-email-app.css";
+    @import "/apps/email/assets/css/main-email-app.css";
+    @import "/apps/email/assets/css/email-preview.css";
+    @import "/assets/css/helpers.css";
     /* Todo: be more specific */
 
     body {

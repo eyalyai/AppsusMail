@@ -1,0 +1,29 @@
+
+.preview-details {
+    display: flex;
+    /* justify-content: space-around; */
+    /* align-items: flex-start; */
+    background-color: #fff;
+    box-shadow: 0 0 4px 1px #00000038;
+    padding: 10px;
+    margin: 0 1em;
+    width: auto;
+    transition: 0.3s;
+    cursor: pointer;
+    gap: 1em;
+    color: black;
+}
+
+.preview-details .ebody {
+    flex: 1;
+    justify-self: flex-end;
+}
+
+.preview-details .sender {
+    margin-inline-end: 2em;
+}
+
+.preview-details .sender, .subject {
+    margin-inline-end: 2em;
+    width: 100px;
+}

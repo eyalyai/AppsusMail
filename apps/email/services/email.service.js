@@ -3,7 +3,8 @@ import { storageService } from '../../../services/storage-service.js'
 
 export const emailService = {
     query,
-    getFormatAMPM
+    getFormatAMPM,
+    getEmailById
 }
 
 const KEY = 'emails'
@@ -84,11 +85,11 @@ function _sortBySentAt(emails) {
 // }
 
 
-// function getBookById(bookId) {
-//     return Promise.resolve(gEmails.find((book) => {
-//         return bookId === book.id
-//     }))
-// }
+function getEmailById(bookId) {
+    return Promise.resolve(gEmails.find((book) => {
+        return bookId === book.id
+    }))
+}
 
 // function getNextBookId(bookId) {
 //     const bookIdx = gEmails.findIndex(book => book.id === bookId)

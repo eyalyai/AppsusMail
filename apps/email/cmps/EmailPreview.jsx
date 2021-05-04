@@ -5,7 +5,7 @@ export class EmailPreview extends React.Component {
     state = {
         isRead: false,
     }
-    
+
     componentDidMount() {
         this.getReadColor
     }
@@ -20,7 +20,7 @@ export class EmailPreview extends React.Component {
     render() {
         const { email } = this.props;
         return (
-            <Link to={ `/email/${email.id}` }>
+            <Link to={ `/mail/${email.id}` }>
                 <div className="email-preview">
                     <div className={ (email.isRead) ? 'preview-details read' : 'preview-details' }>
                         <h3 className="sender">{ email.sender }</h3>
