@@ -1,11 +1,11 @@
 const Router = ReactRouterDOM.HashRouter
 const { Route, Switch, Link } = ReactRouterDOM
 
-import {MailApp} from './apps/email/MailApp.jsx'
-import {MissKeep} from './apps/keep/MissKeep.jsx'
-import {AboutUs} from './pages/AboutUs.jsx'
-import {AppHeader} from './cmps/AppHeader.jsx'
-import {BookEdit} from './pages/BookEdit.jsx'
+import { EmailApp } from './apps/email/EmailApp.jsx'
+import { MissKeep } from './apps/keep/MissKeep.jsx'
+import { AboutUs } from './pages/AboutUs.jsx'
+import { AppHeader } from './cmps/AppHeader.jsx'
+import { BookEdit } from './pages/BookEdit.jsx'
 
 function Home() {
     return <section className="home-page">
@@ -22,12 +22,12 @@ export function App() {
             </header>
             <main>
                 <Switch>
-                    {/* <Route component={BookEdit} path="/book/edit/:bookId?"/> */}
-                    <Route component={ MailApp } path="/mail" />
-                    <Route component={MissKeep} path="/keep"/>
-                    {/* <Route component={BookShopApp} path="/book"/> */}
-                    <Route component={AboutUs} path="/about"/>
-                    <Route component={Home} path="/"/>
+                    {/* <Route component={BookEdit} path="/book/edit/:bookId?"/> */ }
+                    <Route component={ EmailApp } path="/mail" />
+                    <Route component={ MissKeep } path="/keep" />
+                    {/* <Route component={BookShopApp} path="/book"/> */ }
+                    <Route component={ AboutUs } path="/about" />
+                    <Route component={ Home } path="/" />
                 </Switch>
             </main>
             <footer>

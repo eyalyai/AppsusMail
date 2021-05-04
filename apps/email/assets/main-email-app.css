@@ -1,0 +1,60 @@
+* {
+    box-sizing: border-box;
+}
+
+/* html {
+    font-family: Arial, Helvetica, sans-serif;
+} */
+
+.email-app {
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+}
+
+.email-app a {
+    text-decoration: none;
+}
+
+.preview-details {
+    display: flex;
+    /* justify-content: space-around; */
+    /* align-items: flex-start; */
+    background-color: rgb(226, 226, 226);
+    box-shadow: 0 0 4px 1px #00000038;
+    padding: 10px;
+    margin: 0 1em;
+    width: auto;
+    transition: 0.3s;
+    cursor: pointer;
+    gap: 1em;
+    color: black;
+}
+
+.preview-detailes:last-child {
+    align-self: flex-end;
+}
+
+.preview-details .ebody {
+    flex: 1;
+    justify-self: flex-end;
+}
+
+.preview-details .sender {
+    margin-inline-end: 2em;
+}
+
+.preview-details .sender, .subject {
+    margin-inline-end: 2em;
+    width: 100px;
+}
+
+.clean-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.read {
+    background-color: #fff;
+}
