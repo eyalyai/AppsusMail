@@ -22,7 +22,6 @@ export class EmailApp extends React.Component {
         emailService.query(this.state.filterBy)
             .then((emails) => {
                 this.setState({ emails: emails })
-                console.log(this.state)
             })
     }
 
@@ -31,7 +30,6 @@ export class EmailApp extends React.Component {
     }
 
     render() {
-        console.log('redering');
         const { emails, filterBy } = this.state
         if (!emails) return <div>Loading...</div>
         return (

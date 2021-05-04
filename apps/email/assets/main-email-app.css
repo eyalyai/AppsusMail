@@ -9,18 +9,23 @@
 .email-app {
     display: flex;
     flex-direction: column;
-    margin: 1em;
+    /* margin: 1em; */
+    background-color: #fff;
 }
 
 .email-app a {
     text-decoration: none;
 }
 
+.email-app h1 {
+    text-align: center;
+}
+
 .preview-details {
     display: flex;
     /* justify-content: space-around; */
     /* align-items: flex-start; */
-    background-color: rgb(226, 226, 226);
+    background-color: #fff;
     box-shadow: 0 0 4px 1px #00000038;
     padding: 10px;
     margin: 0 1em;
@@ -56,5 +61,6 @@
 }
 
 .read {
-    background-color: #fff;
+    background-color: #dbdbdb8c;
+    color: #646464;
 }

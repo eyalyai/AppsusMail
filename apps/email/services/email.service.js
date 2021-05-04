@@ -25,6 +25,7 @@ var gEmails = [
 //TODO: configure filterBy, return emails 
 //readStatue contain true or false
 function query(filterBy) {
+    _sortBySentAt(gEmails)
     if (filterBy) {
         var { title, readStatue } = filterBy
         const filteredEmails = gEmails.filter((book) => {
@@ -32,12 +33,12 @@ function query(filterBy) {
         })
         return Promise.resolve(filteredEmails)
     }
-    console.log(gEmails)
     return Promise.resolve(gEmails)
 }
 
+
 function getFormatAMPM(timeStamp) {
-    if (!timeStamp) var date = new Date(timeStamp);
+    if (timeStamp) var date = new Date(timeStamp);
     else var date = new Date;
     let hours = date.getHours();
     let minutes = date.getMinutes();
@@ -49,7 +50,9 @@ function getFormatAMPM(timeStamp) {
     return strTime;
 }
 
-
+function _sortBySentAt(emails) {
+    gEmails = emails.sort((a, b) => a.sentAt > b.sentAt ? -1 : (a.sentAt < b.sentAt ? 1 : 0))
+}
 // function deleteBook(bookId) {
 //     var bookIdx = gEmails.findIndex(function (book) {
 //         return bookId === book.id
