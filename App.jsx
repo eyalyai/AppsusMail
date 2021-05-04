@@ -1,7 +1,7 @@
 const Router = ReactRouterDOM.HashRouter
 const {Route, Switch, Link} = ReactRouterDOM
 
-import {BookShopApp} from './pages/BookShopApp.jsx'
+import {BookShopApp} from './apps/email/pages/BookShopApp.jsx'
 import {BookDetails} from './pages/BookDetails.jsx'
 import {AboutUs} from './pages/AboutUs.jsx'
 import {AppHeader} from './cmps/AppHeader.jsx'

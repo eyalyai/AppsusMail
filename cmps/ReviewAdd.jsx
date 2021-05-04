@@ -1,4 +1,4 @@
-import { bookService } from '../services/book.service.js'
+import { bookService } from '../apps/email/services/book.service.js'
 import { utilService } from '../services/util.service.js'
 import { RatingStars } from './RatingStars.jsx'
 

@@ -1,7 +1,7 @@
 const {Link, Route} = ReactRouterDOM
 import {LongTxt} from '../cmps/LongTxt.jsx'
 import {ReviewAdd} from '../cmps/ReviewAdd.jsx'
-import { bookService } from '../services/book.service.js'
+import { bookService } from '../apps/email/services/book.service.js'
 import {ReviewList} from '../cmps/ReviewList/jsx'
 
 

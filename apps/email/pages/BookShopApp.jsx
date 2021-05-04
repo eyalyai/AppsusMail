@@ -1,8 +1,8 @@
 const {Link} = ReactRouterDOM
 import {bookService} from '../services/book.service.js'
-import {eventBusService} from '../services/event-bus-service.js'
-import {BookList} from '../cmps/BookList.jsx'
-import {BookFilter} from '../cmps/BookFilter.jsx'
+import {eventBusService} from '../../../services/event-bus-service.js'
+import {BookList} from '../../../cmps/BookList.jsx'
+import {BookFilter} from '../../../cmps/BookFilter.jsx'
 
 
 export class BookShopApp extends React.Component {
