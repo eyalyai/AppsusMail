@@ -8,7 +8,7 @@ class _AppHeader extends React.Component {
         bookCount: 0, 
     }
 
-    
+
     componentDidMount() {
         this.removeEvent = eventBusService.on('book-count', (bookCount) => {
             this.setState({bookCount})
@@ -27,6 +27,8 @@ class _AppHeader extends React.Component {
                 <ul className="clean-list">
                     <li><NavLink exact to="/" activeClassName="active-nav">Home</NavLink></li>
                     <li><NavLink exact to="/about">About</NavLink></li>
+                    <li><NavLink exact to="/email">Email</NavLink></li>
+                    <li><NavLink exact to="/keep">Keep</NavLink></li>
                     <li><button onClick={() => {
                         this.props.history.goBack()
                     }}>Back</button></li>
