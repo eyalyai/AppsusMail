@@ -4,15 +4,8 @@ const { Route, Switch, Link } = ReactRouterDOM
 import { EmailApp } from './apps/email/EmailApp.jsx'
 import { MissKeep } from './apps/keep/MissKeep.jsx'
 import { AboutUs } from './pages/AboutUs.jsx'
+import { Home } from './pages/Home.jsx'
 import { AppHeader } from './cmps/AppHeader.jsx'
-import { BookEdit } from './pages/BookEdit.jsx'
-
-function Home() {
-    return <section className="home-page">
-        <h1>Welcome to lil MissBook shop</h1>
-        <p>Check out our awesome <Link to="/keep">Books Collection</Link></p>
-    </section>
-}
 
 export function App() {
     return (

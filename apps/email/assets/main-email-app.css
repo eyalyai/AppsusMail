@@ -36,10 +36,6 @@
     color: black;
 }
 
-.preview-detailes:last-child {
-    align-self: flex-end;
-}
-
 .preview-details .ebody {
     flex: 1;
     justify-self: flex-end;

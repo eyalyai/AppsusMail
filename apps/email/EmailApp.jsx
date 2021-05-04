@@ -22,6 +22,7 @@ export class EmailApp extends React.Component {
         emailService.query(this.state.filterBy)
             .then((emails) => {
                 this.setState({ emails: emails })
+                console.log(this.state.emails);
             })
     }
 

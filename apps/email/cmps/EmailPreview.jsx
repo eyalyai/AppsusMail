@@ -1,9 +1,11 @@
 const { Link } = ReactRouterDOM
 import { emailService } from '../services/email.service.js';
 export class EmailPreview extends React.Component {
+    
     state = {
         isRead: false,
     }
+    
     componentDidMount() {
         this.getReadColor
     }

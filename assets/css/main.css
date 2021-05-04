@@ -1,4 +1,6 @@
     @import "/apps/email/assets/main-email-app.css";
+    /* Todo: be more specific */
+
     body {
         background-color: lightblue;
         margin: 0;
@@ -15,11 +17,9 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 100%;
+        justify-content: space-around;
     }
-
-    /* .app-header span{ 
-    display: none;
-} */
 
     .clean-list {
         display: flex;
