@@ -2,7 +2,7 @@ const Router = ReactRouterDOM.HashRouter
 const {Route, Switch, Link} = ReactRouterDOM
 
 import {BookShopApp} from './apps/email/pages/BookShopApp.jsx'
-import {BookDetails} from './pages/BookDetails.jsx'
+import {MissKeep} from '../'
 import {AboutUs} from './pages/AboutUs.jsx'
 import {AppHeader} from './cmps/AppHeader.jsx'
 import {BookEdit} from './pages/BookEdit.jsx'
@@ -23,7 +23,7 @@ export function App() {
             <main>
                 <Switch>
                     <Route component={BookEdit} path="/book/edit/:bookId?"/>
-                    <Route component={BookDetails} path="/book/:bookId"/>
+                    <Route component={MissKeep} path="/keep"/>
                     <Route component={BookShopApp} path="/book"/>
                     <Route component={AboutUs} path="/about"/>
                     <Route component={Home} path="/"/>
