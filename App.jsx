@@ -10,7 +10,7 @@ import {BookEdit} from './pages/BookEdit.jsx'
 function Home() {
     return <section className="home-page">
         <h1>Welcome to lil MissBook shop</h1>
-        <p>Check out our awesome <Link to="/book">Books Collection</Link></p>
+        <p>Check out our awesome <Link to="/keep">Books Collection</Link></p>
     </section>
 }
 
