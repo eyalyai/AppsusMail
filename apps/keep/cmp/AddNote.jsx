@@ -3,12 +3,19 @@ const { Route, Switch, Link, NavLink } = ReactRouterDOM
 
 export class AddNote extends React.Component {
 
+    state = {
+        inputVal:null
+    }
+
     componentDidMount() {
+    
 
     }
 
-    state = {
-        input:null
+    handleChange = ({ target }) => {
+    
+        const value = target.type === 'number' ? +target.value : target.value
+        this.setState({inputVal: value})
     }
 
     addTextInput = () => {
@@ -18,20 +25,17 @@ export class AddNote extends React.Component {
         }}> <input type="text" onInput={this.handleChange} /><button>+</button></form>
     }
 
-    onAddTextNote = () => {
-        keepService.addNote('NoteText',{info:this.state.input}).then(()=>{
-            this.props.renderPage()
-            console.log(this.state.input)
-           
+    onAddTextNote = (ev) => {
+        ev.preventDefault()
+        keepService.addNote('NoteText', { txt: this.state.inputVal }).then(() => {
+            this.props.onSaveNote()
+            console.log(this.props)
+
         })
     }
 
-    handleChange = ({ target }) => {
-        const value = target.value
-        this.setState({input:value})
-    }
+
     render() {
-        // console.log(this.props)
         return (
             <div className="add-note-container">
                 <nav>

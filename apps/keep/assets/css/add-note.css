@@ -11,3 +11,14 @@
 .add-note-container form {
     margin-top: 10px;
 }
+
+.modal-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(32, 31, 31, 0.6);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+}

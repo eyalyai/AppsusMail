@@ -22,10 +22,10 @@ export function App() {
                 <Switch>
                     <Route component={ EmailDetails } path="/mail/:emailId" />
                     <Route component={ EmailApp } path="/mail" />
-                    <Route component={ NoteTxt } path="/keep/notetxt" />
-                    <Route component={ NoteTodos } path="/keep/notetodos" />
-                    <Route component={ NoteImg } path="/keep/noteimg" />
-                    <Route component={ NoteVideo } path="/keep/notevideo" />
+                    {/* <Route component={ NoteTxt } path="/keep/notetxt" /> */}
+                    {/* <Route component={ NoteTodos } path="/keep/notetodos" /> */}
+                    {/* <Route component={ NoteImg } path="/keep/noteimg" /> */}
+                    {/* <Route component={ NoteVideo } path="/keep/notevideo" /> */}
                     <Route component={ MissKeep } path="/keep" />
                     <Route component={ AboutUs } path="/about" />
                     <Route component={ Home } path="/" />

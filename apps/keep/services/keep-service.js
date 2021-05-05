@@ -12,6 +12,7 @@ export const keepService = {
     getNextNoteId,
     saveNote,
     addNote,
+    editNote
 
 
 }
@@ -57,7 +58,7 @@ var gNotes = [{
     }
 ]
 
-function query(filterBy) {
+function query() {
     if (notes) {
         var {
             notes
@@ -99,21 +100,35 @@ function removeNote(noteId) {
 
 
 function saveNote(note) {
-    gNotes[getNoteById(note.id)] = note
+    gNotes[getNoteById(note)] = note
     _saveNotesToStorage()
+}
+
+function editNote(newNote, noteId) {
+    return getNoteById(noteId)
+        .then((note) => {
+            note.info.txt = newNote.txt;
+            _saveNotesToStorage()
+            return Promise.resolve()
+        })
+
+    .catch((err) => {
+        console.log(err)
+    })
 }
 
 function addNote(type, info) {
     console.log(gNotes)
-    gNotes.push({
-        type,
+    var newNote = {
         id: utilService.makeId(),
         isPinned: false,
+        type,
         info
-    })
+    }
+    gNotes.push(newNote)
     _saveNotesToStorage()
     console.log(gNotes)
-    return Promise.resolve()
+    return Promise.resolve(gNotes)
 }
 
 function _saveNotesToStorage() {
@@ -121,6 +136,17 @@ function _saveNotesToStorage() {
 }
 
 
+
+
+// function addNote(note) {
+//     const newNote = {
+//         id: utilService.makeId(),
+//         type: note.type,
+//         isPinned: false,
+//         info: {
+//             txt: note.txt
+//         }
+//     }
 
 // function _createNote(type) {
 //     // if (!price) price = utilService.getRandomIntInclusive(1, 200)

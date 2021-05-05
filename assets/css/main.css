@@ -3,13 +3,9 @@
     @import "/apps/email/assets/css/email-filter.css";
     @import "/apps/email/assets/css/email-sidebar.css";
     @import "/assets/css/helpers.css";
-<<<<<<< HEAD
-    
-=======
     @import "/apps/keep/assets/css/main-keep-app.css";
     @import "/apps/keep/assets/css/keep-preview.css";
     @import "/apps/keep/assets/css/add-note.css";
->>>>>>> 1b9d8abc85d930e7bc5804c87e085630c4523ebb
     /* Todo: be more specific */
     
     body {

@@ -15,7 +15,7 @@ export class KeepPreview extends React.Component {
     }
 
     loadNote = () => {
-        this.setState({ not: this.props.note })
+        this.setState({ note: this.props.note })
         // console.log(this.props.note)
     }
 
@@ -43,6 +43,7 @@ export class KeepPreview extends React.Component {
     }
 
     DynamicCmp = (props) => {
+        // console.log(props.note.type)
         switch (props.note.type) {
             case 'NoteText':
                 return <this.NoteTxt {...props} />
@@ -67,7 +68,7 @@ export class KeepPreview extends React.Component {
     }
 
     render() {
-        // console.log(this.props.note)
+        console.log(this.props.note)
         return <article className="keep-preview">
             <this.DynamicCmp note={this.props.note} />
         </article>
