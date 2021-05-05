@@ -3,6 +3,7 @@ const { Route, Switch, NavLink, Link } = ReactRouterDOM
 
 import { keepService } from "./services/keep-service.js"
 import { KeepList } from "./cmp/KeepList.jsx"
+import { AddNote } from "./cmp/AddNote.jsx"
 
 
 // function ToNoteTxt({ name, onSomething }) {
@@ -19,7 +20,6 @@ import { KeepList } from "./cmp/KeepList.jsx"
 // }
 export class MissKeep extends React.Component {
     state = {
-        currView: 'GoodBye',
         notes: null
     }
 
@@ -28,7 +28,6 @@ export class MissKeep extends React.Component {
 
     }
 
-
     loadNotes = () => {
         keepService.query(this.state.filterBy)
             .then((notes) => {
@@ -36,11 +35,9 @@ export class MissKeep extends React.Component {
                 console.log(this.state.notes);
             })
     }
-
-
-
-
-
+    renderPage = () => {
+        this.loadNotes()
+    }
 
     render() {
         const { notes } = this.state
@@ -50,6 +47,7 @@ export class MissKeep extends React.Component {
                 <h1>MissKeep Main Page</h1>
 
                 <section className="main-keep">
+                        <AddNote renderPage={this.renderPage} />
                     <div className="keep-container">
                         <KeepList notes={ notes } />
                     </div>
