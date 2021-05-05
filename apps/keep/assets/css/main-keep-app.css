@@ -1,0 +1,12 @@
+.keep-app {
+    text-align: center;
+}
+
+.main-keep {
+    text-decoration: none;
+}
+
+.keep-container {
+    display: flex;
+    flex-direction: column;
+}

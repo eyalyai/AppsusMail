@@ -1,5 +1,9 @@
-import { utilService } from './util.service.js'
-import { storageService } from './storage-service.js'
+import {
+    utilService
+} from './util.service.js'
+import {
+    storageService
+} from './storage-service.js'
 
 export const keepService = {
     query,
@@ -7,6 +11,7 @@ export const keepService = {
     removeNote,
     getNextNoteId,
     saveNote,
+    addNote,
 
 
 }
@@ -15,6 +20,7 @@ const KEY = 'notes'
     // _createNotes()
 var gNotes = [{
         type: "NoteText",
+        id: utilService.makeId(),
         isPinned: true,
         info: {
             txt: "Fullstack Me Baby!"
@@ -22,6 +28,8 @@ var gNotes = [{
     },
     {
         type: "NoteImg",
+        id: utilService.makeId(),
+        isPinned: false,
         info: {
             url: "http://some-img/me",
             title: "Me playing Mi"
@@ -32,11 +40,18 @@ var gNotes = [{
     },
     {
         type: "NoteTodos",
+        id: utilService.makeId(),
+        isPinned: false,
         info: {
             label: "How was it:",
-            todos: [
-                { txt: "Do that", doneAt: null },
-                { txt: "Do this", doneAt: 187111111 }
+            todos: [{
+                    txt: "Do that",
+                    doneAt: null
+                },
+                {
+                    txt: "Do this",
+                    doneAt: 187111111
+                }
             ]
         }
     }
@@ -44,7 +59,9 @@ var gNotes = [{
 
 function query(filterBy) {
     if (notes) {
-        var { notes } = filterBy
+        var {
+            notes
+        } = filterBy
         const filteredNotes = gNotes.filter((note) => {
             return note.type.includes(type)
         })
@@ -82,49 +99,65 @@ function removeNote(noteId) {
 
 
 function saveNote(note) {
-    return note.id ? _updateNote(note) : _addNote(note);
+    gNotes[getNoteById(note.id)] = note
+    _saveNotesToStorage()
 }
 
-function _addNote(noteToAdd) {
-    var note = _createNote(noteToAdd.title, noteToAdd.info)
-    gNotes.unshift(note)
-    _saveNotesToStorage();
-    return Promise.resolve(note)
-}
-
-
-function _updateNote(noteToUpdate) {
-    var noteIdx = gNotes.findIndex(function(note) {
-        return note.id === noteToUpdate.id;
-    })
-    gNotes.splice(noteIdx, 1, noteToUpdate)
-    _saveNotesToStorage();
-    return Promise.resolve(noteToUpdate)
-}
-
-
-
-
-function _createNote(type) {
-    // if (!price) price = utilService.getRandomIntInclusive(1, 200)
-    return {
-        id: utilService.makeId(),
+function addNote(type, info) {
+    console.log(gNotes)
+    gNotes.push({
         type,
-        info,
-        desc: utilService.makeLorem()
-    }
+        id: utilService.makeId(),
+        isPinned: false,
+        info
+    })
+    _saveNotesToStorage()
+    console.log(gNotes)
+    return Promise.resolve()
 }
-
-function _createNotes() {
-    let notes = storageService.loadFromStorage(KEY)
-    if (!notes || !notes.length) {
-        notes = gNotes
-    }
-
-    _saveNotesToStorage();
-}
-
 
 function _saveNotesToStorage() {
     storageService.saveToStorage(KEY, gNotes)
 }
+
+
+
+// function _createNote(type) {
+//     // if (!price) price = utilService.getRandomIntInclusive(1, 200)
+//     return {
+//         id: utilService.makeId(),
+//         isPinned: false,
+//         type,
+//         desc: utilService.makeLorem()
+//     }
+// }
+
+// function _createNotes() {
+//     let notes = storageService.loadFromStorage(KEY)
+//     if (!notes || !notes.length) {
+//         notes = gNotes
+//     }
+
+//     _saveNotesToStorage();
+// }
+
+// function saveNote(note) {
+//     return note.id ? _updateNote(note) : _addNote(note);
+// }
+
+// function _addNote(noteToAdd) {
+//     var note = _createNote(noteToAdd.title, noteToAdd.info)
+//     gNotes.unshift(note)
+//     _saveNotesToStorage();
+//     return Promise.resolve(note)
+// }
+
+
+// function _updateNote(noteToUpdate) {
+//     var noteIdx = gNotes.findIndex(function(note) {
+//         return note.id === noteToUpdate.id;
+//     })
+//     gNotes.splice(noteIdx, 1, noteToUpdate)
+//     _saveNotesToStorage();
+//     return Promise.resolve(noteToUpdate)
+// }
