@@ -26,3 +26,8 @@
     margin-inline-end: 2em;
     width: 100px;
 }
+
+.read-true {
+    background-color: #dbdbdb8c;
+    color: #646464;
+}

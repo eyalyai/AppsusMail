@@ -15,23 +15,22 @@ export class EmailPreview extends React.Component {
     getReadColor() {
         if (this.props.email.isRead) {
             this.setState({ isRead: true });
-            console.log(this.state.isRead);
         }
     }
 
     render() {
         const { email } = this.props;
         return (
-            <Link to={ `/mail/${email.id}` }>
-                <div className="email-preview">
-                    <div className={ (email.isRead) ? 'preview-details read' : 'preview-details' }>
-                        <h3 className="sender">{ email.sender }</h3>
-                        <h3 className="subject">{ email.subject }</h3>
-                        <LongTxt className="ebody" txt={ email.body } />
-                        <h3 className="sent-at">{ emailService.getFormatAMPM(email.sentAt) }</h3>
-                    </div>
+            // <Link to={ `/mail/${email.id}` }>
+            <div className="email-preview">
+                <div className={ (email.isRead) ? 'preview-details read-true' : 'preview-details' }>
+                    <h3 className="sender">{ email.sender }</h3>
+                    <h3 className="subject">{ email.subject }</h3>
+                    <LongTxt className="ebody" txt={ email.body } />
+                    <h3 className="sent-at">{ emailService.getFormatAMPM(email.sentAt) }</h3>
                 </div>
-            </Link >
+            </div>
+            // </Link >
 
         )
     }

@@ -1,0 +1,62 @@
+.email-sidebar {
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 150px;
+}
+
+.email-sidebar button {
+    border: none;
+    background-color: transparent;
+    padding: 8px;
+    margin: 5px 20px;
+    box-shadow: 0px 1px 2px 0.5px rgb(59 58 58);
+    color: rgb(129 126 126);
+    width: 12vw;
+    cursor: pointer;
+    /* font-family: inherit; */
+    font-weight: 700;
+    border-radius: 22px;
+}
+
+.email-sidebar button:hover {
+    background-color: rgb(26, 196, 11);
+    color: white;
+    width: 12.5vw;
+    transition: 0.3s;
+}
+
+.email-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.email-nav a {
+    color: #4c4c4c;
+    margin-inline-start: 0.5em;
+}
+
+.email-nav>* {
+    margin: 0.4em 0 0 0;
+    padding: 1vh 1.5em;
+    min-width: 150px;
+    border-end-end-radius: 20px;
+    border-start-end-radius: 20px;
+    cursor: pointer;
+}
+
+.email-nav>*:hover {
+    background-color: lightcoral;
+}
+
+.email-nav>*:visited {
+    color: inherit;
+}
+
+.email-nav ul>img {
+    object-fit: cover;
+    max-width: 1.5vw;
+}

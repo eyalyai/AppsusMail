@@ -3,9 +3,8 @@ const { Route, Switch, Link } = ReactRouterDOM
 
 import { emailService } from './services/email.service.js'
 import { EmailList } from './cmps/EmailList.jsx'
-import { EmailDetails } from './pages/EmailDetails.jsx'
-// import { BookFilter } from '../cmps/BookFilter.jsx' 
-
+import { EmailSideBar } from './cmps/EmailSideBar.jsx';
+import { EmailFilter } from './cmps/EmailFilter.jsx';
 export class EmailApp extends React.Component {
 
     state = {
@@ -35,12 +34,16 @@ export class EmailApp extends React.Component {
         if (!emails) return <div>Loading...</div>
         return (
             <div className="email-app">
-                <h1>Email app</h1>
+                <header className="email-header">
+                    <h1>Email app</h1>
+                    <EmailFilter emails={ emails } filterBy={ filterBy } onSetFilter={ this.onSetFilter } />
+                </header>
                 <section className="main-email">
-                    {/* <BookFilter onSetFilter={ this.onSetFilter } /> */ }
+                    <div >
+                        <EmailSideBar emails={ emails } />
+                    </div>
                     <div className="mail-container">
                         <EmailList emails={ emails } />
-                        {/* { this.state.selectedBook && <BookDetails book={ selectedBook } onUnSelectBook={ this.onUnSelectBook } getPriceColor={ this.getPriceColor } /> } */ }
                     </div>
                 </section>
             </div>

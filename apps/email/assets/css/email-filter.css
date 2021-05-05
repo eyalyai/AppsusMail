@@ -1,0 +1,9 @@
+.email-search {
+    padding: 5px 10px;
+    font-family: inherit;
+    /* border: none; */
+    border-radius: 5px;
+    background-color: rgb(230, 230, 230);
+    font-size: 1em;
+    flex: 1;
+}
