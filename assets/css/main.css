@@ -3,6 +3,7 @@
     @import "/apps/email/assets/css/email-filter.css";
     @import "/apps/email/assets/css/email-sidebar.css";
     @import "/apps/email/assets/css/email-details.css";
+    @import "/apps/email/assets/css/email-compose.css";
     @import "/assets/css/helpers.css";
     @import "/apps/keep/assets/css/main-keep-app.css";
     @import "/apps/keep/assets/css/keep-preview.css";

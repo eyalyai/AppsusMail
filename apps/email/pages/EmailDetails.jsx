@@ -1,6 +1,6 @@
 const { Link, Route } = ReactRouterDOM
 import { emailService } from '../services/email.service.js'
-import { EmailSideBar } from '../cmps/EmailSideBar.js'
+import { EmailSideBar } from '../cmps/EmailSideBar.jsx'
 
 export class EmailDetails extends React.Component {
 

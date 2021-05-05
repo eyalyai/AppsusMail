@@ -5,10 +5,12 @@ export const emailService = {
     query,
     getFormatAMPM,
     getEmailById,
-    deleteEmail
+    deleteEmail,
+    saveEmail
 }
 
-const KEY = 'emails'
+const KEYMAIL = 'emails'
+const KEYSENT = 'sent'
 var gEmails = [
     {
         'id': 'OXeMG8wNskc',
@@ -92,21 +94,24 @@ var gEmails = [
         'sentAt': 1551133530594
     },
 ]
+var gSentEmails = []
 // _createBooks()
 
 
 //TODO: configure filterBy, return emails 
 //readStatue contain true or false
 function query(filterBy) {
-    _sortBySentAt(gEmails)
+    const storageMail = _loadEmailsFromStorage(KEYMAIL)
+    const emails = (storageMail) ? storageMail : gEmails
+    _sortBySentAt(emails)
     if (filterBy) {
         var { title, readStatue } = filterBy
-        const filteredEmails = gEmails.filter((book) => {
+        const filteredEmails = emails.filter((book) => {
             return book.title.includes(title) && email.isRead === readStatue
         })
         return Promise.resolve(filteredEmails)
     }
-    return Promise.resolve(gEmails)
+    return Promise.resolve(emails)
 }
 
 
@@ -134,8 +139,11 @@ function getEmailById(bookId) {
     }))
 }
 
-function _saveEmailsToStorage() {
-    storageService.saveToStorage(KEY, gEmails)
+function _saveEmailsToStorage(key, val) {
+    storageService.saveToStorage(key, val)
+}
+function _loadEmailsFromStorage(key) {
+    storageService.loadFromStorage(key)
 }
 
 
@@ -144,9 +152,14 @@ function deleteEmail(emailId) {
         return emailId === email.id
     })
     gEmails.splice(emailIdx, 1)
-    _saveEmailsToStorage();
+    _saveEmailsToStorage(KEYMAIL, gEmails);
     return Promise.resolve()
 
+}
+function saveEmail(email) {
+    gSentEmails.push(email)
+    console.log('saved to sent', gSentEmails)
+    _saveEmailsToStorage(KEYSENT, gSentEmails)
 }
 
 // function saveBook(book) {
