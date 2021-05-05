@@ -9,16 +9,87 @@ export const emailService = {
 
 const KEY = 'emails'
 var gEmails = [
-    { 'id': 'OXeMG8wNskc', 'sender': 'Eyal', 'subject': 'Wassap?', 'body': 'Pick up!', 'isRead': false, 'sentAt': 1551133930594 },
-    { 'id': 'JYOJa2NpSCq', 'sender': 'Aylam', 'subject': 'Hi?', 'body': 'Pick up!', 'isRead': false, 'sentAt': 1551133932000 },
-    { 'id': '1y0Oqts35DQ', 'sender': 'Yoni', 'subject': 'Shalom?', 'body': 'Pick up!', 'isRead': true, 'sentAt': 1551133934000 },
-    { 'id': 'kSnfIJyikTP', 'sender': 'Reut', 'subject': 'HRUD?', 'body': 'Pick up!', 'isRead': false, 'sentAt': 1551133132000 },
-    { 'id': 'f4iuVmbuKCC', 'sender': 'Conding Academy', 'subject': 'boba?', 'body': 'Pick up!', 'isRead': true, 'sentAt': 1551138930594 },
-    { 'id': 'U2rfZO6oBZf', 'sender': 'Adam', 'subject': 'lola?', 'body': 'Pick up!', 'isRead': false, 'sentAt': 1551132930594 },
-    { 'id': 'xI0wrXaaAcq', 'sender': 'Haya', 'subject': 'hi about the blabla', 'body': 'Pick up!', 'isRead': false, 'sentAt': 1551133930594 },
-    { 'id': '9laHCEdSpFy', 'sender': 'May', 'subject': 'Wassap?', 'body': 'Pick up!', 'isRead': false, 'sentAt': 1551131930594 },
-    { 'id': 'nGhVwZvGCGp', 'sender': 'Noam', 'subject': 'Wassap?', 'body': 'Pick up!', 'isRead': true, 'sentAt': 1551139309594 },
-    { 'id': 'Q8Q9Lsd03BD', 'sender': 'Yuval', 'subject': 'Wassap?', 'body': 'Pick up!', 'isRead': true, 'sentAt': 1551133530594 },
+    {
+        'id': 'OXeMG8wNskc',
+        'sender': 'Eyal',
+        'subject': 'Wassap?',
+        'body': 'Pick up!',
+        'isRead': false,
+        'sentAt': 1551133930594
+    },
+    {
+        'id': 'JYOJa2NpSCq',
+        'sender': 'Aylam',
+        'subject': 'Hi?',
+        'body': utilService.makeLorem(150),
+        'isRead': false,
+        'sentAt': 1551133932000
+    },
+    {
+        'id': '1y0Oqts35DQ',
+
+        'sender': 'Yoni',
+        'subject': 'Shalom?',
+        'body': utilService.makeLorem(150),
+        'isRead': true,
+        'sentAt': 1551133934000
+    },
+    {
+        'id': 'kSnfIJyikTP',
+        'sender': 'Reut',
+        'subject': 'HRUD?',
+        'body': 'Pick up!',
+        'isRead': false,
+        'sentAt': 1551133132000
+    },
+    {
+        'id': 'f4iuVmbuKCC',
+        'sender': 'Conding Academy',
+        'subject': 'boba?',
+        'body': utilService.makeLorem(150),
+        'isRead': true,
+        'sentAt': 1551138930594
+    },
+    {
+        'id': 'U2rfZO6oBZf',
+        'sender': 'Adam',
+        'subject': 'lola?',
+        'body': utilService.makeLorem(30),
+        'isRead': false,
+        'sentAt': 1551132930594
+    },
+    {
+        'id': 'xI0wrXaaAcq',
+        'sender': 'Haya',
+        'subject': 'hi about the blabla',
+        'body': 'Pick up!',
+        'isRead': false,
+        'sentAt': 1551133930594
+    },
+    {
+        'id': '9laHCEdSpFy',
+        'sender': 'May',
+        'subject': 'Wassap?',
+        'body': utilService.makeLorem(100),
+        'isRead': false,
+        'sentAt': 1551131930594
+    },
+    {
+        'id': 'nGhVwZvGCGp',
+        'sender': 'Noam',
+        'subject': 'Wassap?',
+        'body': 'Pick up!',
+        'isRead': true,
+        'sentAt': 1551139309594
+    },
+    {
+        'id': 'Q8Q9Lsd03BD',
+        'sender': 'Yuval',
+        'subject': 'Wassap?',
+        'body': 'Pick up!',
+        'isRead': true,
+        'sentAt': 1551133530594
+    },
 ]
 // _createBooks()
 

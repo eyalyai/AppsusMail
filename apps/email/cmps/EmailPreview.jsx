@@ -1,13 +1,15 @@
 const { Link } = ReactRouterDOM
 import { emailService } from '../services/email.service.js';
+import { LongTxt } from '../cmps/LongTxt.jsx'
+
 export class EmailPreview extends React.Component {
-    
+
     state = {
         isRead: false,
     }
 
     componentDidMount() {
-        this.getReadColor
+        this.getReadColor()
     }
 
     getReadColor() {
@@ -25,7 +27,7 @@ export class EmailPreview extends React.Component {
                     <div className={ (email.isRead) ? 'preview-details read' : 'preview-details' }>
                         <h3 className="sender">{ email.sender }</h3>
                         <h3 className="subject">{ email.subject }</h3>
-                        <h4 className="ebody">{ email.body }</h4>
+                        <LongTxt className="ebody" txt={ email.body } />
                         <h3 className="sent-at">{ emailService.getFormatAMPM(email.sentAt) }</h3>
                     </div>
                 </div>

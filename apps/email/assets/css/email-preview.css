@@ -1,8 +1,7 @@
-
 .preview-details {
     display: flex;
     /* justify-content: space-around; */
-    /* align-items: flex-start; */
+    align-items: center;
     background-color: #fff;
     box-shadow: 0 0 4px 1px #00000038;
     padding: 10px;
@@ -14,7 +13,7 @@
     color: black;
 }
 
-.preview-details .ebody {
+.preview-details span {
     flex: 1;
     justify-self: flex-end;
 }

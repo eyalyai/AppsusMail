@@ -1,9 +1,8 @@
 const { Link } = ReactRouterDOM
-// import { emailService } from '../services/email.service.js';
 import { NoteTxt } from "../pages/NoteTxt.jsx"
 import { NoteTodos } from "../pages/NoteTodos.jsx"
 import { NoteImg } from "../pages/NoteImg.jsx"
-import { NoteVideo } from "../pages/NoteVideo.jsx"
+// import { NoteVideo } from "../pages/NoteVideo.jsx"
 
 export function KeepPreview({ note }) {
     switch (note.type) {

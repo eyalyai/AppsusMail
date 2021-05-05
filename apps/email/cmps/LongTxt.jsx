@@ -16,7 +16,7 @@ export class LongTxt extends React.Component {
     render() {
         return (
             <span>
-                <span className="read-more">{this.getTxt()}<span onClick={this.toggleRead}>{this.state.readMore ? 'Read less' : '...Read More'}</span></span>
+                <span className="read-more">{ this.getTxt() }<span onClick={ this.toggleRead }>{ this.state.readMore ? 'Read less' : '...' }</span></span>
             </span>
         )
     }
