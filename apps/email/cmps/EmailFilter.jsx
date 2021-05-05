@@ -15,18 +15,24 @@ export class EmailFilter extends React.Component {
     
     
     render() {
+        console.log(this.state.filterBy);
 
-        // const { title, minPrice, maxPrice } = this.state.filterBy;
-        
+
+
         return (
             <div>
-                <input className="email-search" type="text" name="filter"
+                <input className="email-search" type="text" name="sender"
                     id="filter" placeholder="Search mail"
                     onChange={ this.handleChange } />
             </div>
         )
     }
 }
+
+
+// 'sender': 'Reut',
+// 'subject': 'HRUD?',
+// 'body': 'Pick up!',
 
 
 
@@ -60,10 +66,10 @@ export class EmailFilter extends React.Component {
     //     <form className="book-filter" onSubmit={ this.onFilter }>
     //         <label htmlFor="byTitle">By Title</label>
     //         <input type="text" name="title" id="byTitle" value={ title } onChange={ this.handleChange } />
-    
+
     //         <label htmlFor="minPrice">Lowest price</label>
     //         <input type="text" name="minPrice" id="minPrice" value={ minPrice } onChange={ this.handleChange } />
-    
+
     //         <label htmlFor="maxPrice">Highest price</label>
     //         <input type="text" name="maxPrice" id="maxPrice" value={ maxPrice } onChange={ this.handleChange } />
     //         <button>Filter</button>
