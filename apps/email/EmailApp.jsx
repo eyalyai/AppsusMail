@@ -5,6 +5,7 @@ import { emailService } from './services/email.service.js'
 import { EmailList } from './cmps/EmailList.jsx'
 import { EmailSideBar } from './cmps/EmailSideBar.jsx';
 import { EmailFilter } from './cmps/EmailFilter.jsx';
+import { EmailStatus } from './cmps/EmailStatus.jsx';
 export class EmailApp extends React.Component {
 
     state = {
@@ -14,7 +15,6 @@ export class EmailApp extends React.Component {
 
     componentDidMount() {
         this.loadEmails()
-
     }
 
     loadEmails = () => {
@@ -37,6 +37,7 @@ export class EmailApp extends React.Component {
                 <header className="email-header">
                     <h1>Email app</h1>
                     <EmailFilter emails={ emails } filterBy={ filterBy } onSetFilter={ this.onSetFilter } />
+                    <EmailStatus emails={ emails } />
                 </header>
                 <section className="main-email">
                     <div >

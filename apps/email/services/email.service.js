@@ -4,7 +4,8 @@ import { storageService } from '../../../services/storage-service.js'
 export const emailService = {
     query,
     getFormatAMPM,
-    getEmailById
+    getEmailById,
+    deleteEmail
 }
 
 const KEY = 'emails'
@@ -125,14 +126,28 @@ function getFormatAMPM(timeStamp) {
 function _sortBySentAt(emails) {
     gEmails = emails.sort((a, b) => a.sentAt > b.sentAt ? -1 : (a.sentAt < b.sentAt ? 1 : 0))
 }
-// function deleteBook(bookId) {
-//     var bookIdx = gEmails.findIndex(function (book) {
-//         return bookId === book.id
-//     })
-//     gEmails.splice(bookIdx, 1)
-//     _saveBooksToStorage();
-//     return Promise.resolve()
-// }
+
+
+function getEmailById(bookId) {
+    return Promise.resolve(gEmails.find((book) => {
+        return bookId === book.id
+    }))
+}
+
+function _saveEmailsToStorage() {
+    storageService.saveToStorage(KEY, gEmails)
+}
+
+
+function deleteEmail(emailId) {
+    var emailIdx = gEmails.findIndex(function (email) {
+        return emailId === email.id
+    })
+    gEmails.splice(emailIdx, 1)
+    _saveEmailsToStorage();
+    return Promise.resolve()
+
+}
 
 // function saveBook(book) {
 //     return book.id ? _updateBook(book) : _addBook(book);
@@ -154,14 +169,6 @@ function _sortBySentAt(emails) {
 //     _saveBooksToStorage();
 //     return Promise.resolve(bookToUpdate)
 // }
-
-
-function getEmailById(bookId) {
-    return Promise.resolve(gEmails.find((book) => {
-        return bookId === book.id
-    }))
-}
-
 // function getNextBookId(bookId) {
 //     const bookIdx = gEmails.findIndex(book => book.id === bookId)
 //     var nextBookIdx = bookIdx + 1
@@ -196,7 +203,3 @@ function getEmailById(bookId) {
 // }
 
 
-
-function _saveEmailsToStorage() {
-    storageService.saveToStorage(KEY, gEmails)
-}

@@ -4,7 +4,9 @@ export function EmailSideBar({ emails }) {
     return (
         <div className="email-sidebar">
             {/* TODO add <EmailCompose> */ }
-            <button>+ Compose</button>
+            <button>+ Compose
+                {/* <EmailCompose> */}
+                </button>
             <div>
                 <EmailNav emails={ emails } />
             </div>
