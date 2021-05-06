@@ -51,6 +51,11 @@
 
     .home-hero-text {
         padding: 0 4em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
     }
 
     .home-hero-text> :not(:first-child) {
