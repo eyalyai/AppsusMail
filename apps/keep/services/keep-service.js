@@ -1,5 +1,9 @@
-import { utilService } from './util.service.js'
-import { storageService } from './storage-service.js'
+import {
+    utilService
+} from './util.service.js'
+import {
+    storageService
+} from './storage-service.js'
 
 const KEY = 'notesDB'
 
@@ -45,6 +49,19 @@ function _createNotes() {
 
         },
         {
+
+
+            id: utilService.makeId(),
+            type: "NoteVideo",
+            info: {
+                label: "jigsaw falling into place?",
+                url: "https://www.youtube.com/embed/GoLJJRIWCLU"
+            },
+            style: {
+                backgroundColor: "#var(--col3)"
+            }
+        },
+        {
             id: utilService.makeId(),
             isPinned: false,
             type: "NoteImg",
@@ -63,9 +80,14 @@ function _createNotes() {
             type: "NoteTodos",
             info: {
                 label: "How was it:",
-                todos: [
-                    { txt: "Do that", doneAt: null },
-                    { txt: "Do this", doneAt: 187111111 }
+                todos: [{
+                        txt: "Do that",
+                        doneAt: null
+                    },
+                    {
+                        txt: "Do this",
+                        doneAt: 187111111
+                    }
                 ],
                 style: {
                     backgroundColor: "#B247FF"
@@ -78,9 +100,14 @@ function _createNotes() {
             type: "NoteTodos",
             info: {
                 label: "How was it:",
-                todos: [
-                    { txt: "Do that", doneAt: null },
-                    { txt: "Do this", doneAt: 187111111 }
+                todos: [{
+                        txt: "Do that",
+                        doneAt: null
+                    },
+                    {
+                        txt: "Do this",
+                        doneAt: 187111111
+                    }
                 ],
                 style: {
                     backgroundColor: "#FF99FF"
@@ -89,30 +116,38 @@ function _createNotes() {
         },
         {
             id: utilService.makeId(),
+            type: "NoteText",
             isPinned: false,
-            type: "NoteTodos",
             info: {
-                label: "How was it:",
-                todos: [
-                    { txt: "Do that", doneAt: null },
-                    { txt: "Do this", doneAt: 187111111 }
-                ],
+                txt: "Waka!",
                 style: {
-                    backgroundColor: "#4782ff"
+                    backgroundColor: "#B247FF"
                 }
             }
+
         },
         {
             id: utilService.makeId(),
-            isPinned: false,
+            isPinned: true,
             type: "NoteTodos",
             info: {
                 label: "How was it:",
-                todos: [
-                    { txt: "Do that", doneAt: null },
-                    { txt: "Do this", doneAt: 187111111 },
-                    { txt: "Do that", doneAt: null },
-                    { txt: "Do that", doneAt: null },
+                todos: [{
+                        txt: "Do that",
+                        doneAt: null
+                    },
+                    {
+                        txt: "Do this",
+                        doneAt: 187111111
+                    },
+                    {
+                        txt: "Do that",
+                        doneAt: null
+                    },
+                    {
+                        txt: "Do that",
+                        doneAt: null
+                    },
                 ],
                 style: {
                     backgroundColor: "#475dff"
