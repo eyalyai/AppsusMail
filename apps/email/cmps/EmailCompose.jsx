@@ -48,29 +48,30 @@ export class EmailCompose extends React.Component {
 
         const { body, isRead, subject, to } = this.state.email
         return <div className="compose-container flex column">
-            <form className="flex column" onSubmit={ this.onSaveEmail }>
-                <div>
-                    <label htmlFor="to">To</label>
+            <header className="email-compose-head">New mail</header>
+            <form className="email-compose-form flex column" id="email-compose-form" onSubmit={ this.onSaveEmail }>
+                <div className="email-compose-field email-compose-to">
+                    <label htmlFor="to">To:</label>
                     <input type="email" name="to" id="to" value={ to } required onChange={ this.handleChange } />
                 </div>
                 {/* <label htmlFor="cc">Cc</label>
                 <input type="email" name="cc" id="cc" value={ cc } onChange={ this.handleChange } />
                 <label htmlFor="Bcc">Bcc</label>
                 <input type="email" name="bcc" id="bcc" value={ Bcc } onChange={ this.handleChange } /> */}
-                <div className="flex">
-                    <label htmlFor="subject">Subject</label>
+                <div className="email-compose-field email-compose-subject">
+                    <label htmlFor="subject">Subject:</label>
                     <input type="text" name="subject" id="subject" value={ subject } required onChange={ this.handleChange } />
                 </div>
 
-                <div className="flex">
-                    <textarea rows="10" cols="50" type="text" name="compose-body" id="compose-body" name="body"
-                        value={ body } required onChange={ this.handleChange } />
-                </div>
+                <textarea className="email-compose-field email-compose-body" style={ { width: '100%', height: '100%' } } type="text" name="compose-body" id="compose-body" name="body"
+                    value={ body } required onChange={ this.handleChange } />
                 <div className="flex ">
-                    <button className="send-email-btn" type="submit" >Sent</button>
                 </div>
             </form>
-            <button className="goback" onClick={ () => this.onDeleteCompose }>Delete</button>
+            <div className="email-compose-btn-container flex space-between">
+                <button className="send-email-btn" form="email-compose-form" type="submit" ><img src="apps/email/assets/img/send.png" alt="send" /></button>
+                <button className="goback" onClick={ () => this.onDeleteCompose }><img src="apps/email/assets/img/delete.png" alt="delete" /></button>
+            </div>
         </div>
 
     }

@@ -1,5 +1,111 @@
 .compose-container {
+    position: fixed;
+    max-width: 500px;
+    background-color: #f1f3f4;
     width: 500px;
-    height: 500px;
-    
+    bottom: 2vh;
+    height: 50vh;
+    z-index: 999;
+    box-shadow: 0 8px 10px 1px rgb(0 0 0 / 14%), 0 3px 14px 2px rgb(0 0 0 / 12%), 0 5px 5px -3px rgb(0 0 0 / 20%);
+}
+
+.email-compose-head {
+    display: flex;
+    align-items: center;
+    border-radius: 8px 8px 0 0;
+    font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+    color: #e4e4e4;
+    font-size: .875rem;
+    letter-spacing: .2px;
+    font-weight: 500;
+    padding: 0.3em 1em;
+    height: 40px;
+    width: 100%;
+    background-color: #404040;
+}
+
+.email-compose-form {
+    height: 100%;
+    padding: 0 5px;
+}
+
+.email-compose-head :first-child {
+    flex-grow: 1;
+}
+
+.email-compose-head .fa-times {
+    cursor: pointer;
+}
+
+.email-compose-field {
+    background-color: #f1f3f4;
+    padding: 0.3em 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid #21252957;
+}
+
+.email-compose-field input {
+    font-weight: 700;
+    border-radius: unset;
+    width: 100%;
+}
+
+.email-compose-field span {
+    position: absolute;
+    left: 10px;
+}
+
+.email-compose-field.compose-to input {
+    padding-inline-start: 2.2em;
+}
+
+.email-compose-field.compose-subject input {
+    padding-inline-start: 4.6em;
+}
+
+.email-compose-body {
+    resize: none;
+    font-weight: 600;
+    outline: unset;
+    border: unset;
+    background-color: #f1f3f4;
+    flex-grow: 1;
+}
+
+.email-compose-btn-container button:hover {
+    box-shadow: 0 0 5px #00000042;
+}
+
+.email-compose-btn-container button:active {
+    background-color: #6cb686;
+}
+
+.email-compose-btn-container {
+    margin: 1em;
+}
+
+.email-compose-btn-container button {
+    width: 78px;
+    height: 48px;
+    border: unset;
+    padding: 1em;
+    color: white;
+    background-color: #1a73e8;
+    border-radius: 10px;
+    transition: box-shadow .3s;
+    border-radius: 4px;
+}
+
+.email-compose-btn-container button:hover {
+    box-shadow: 0 1px 2px 0 rgb(26 115 232 / 45%), 0 1px 3px 1px rgb(26 115 232 / 30%);
+    background-color: #297be6;
+    outline: 1px solid transparent;
+    border: none;
+}
+
+.email-compose-btn-container img {
+    object-fit: cover;
+    max-width: 2.5vw;
 }

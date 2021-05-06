@@ -30,8 +30,10 @@ export class EmailPreview extends React.Component {
                 <Link to={ `/mail/${email.id}` }>
                     <div className="email-preview-info flex align-center">
                         <h3 className="sender">{ email.sender }</h3>
-                        <h3 className="subject">{ email.subject }</h3>
-                        <LongTxt className="ebody" txt={ email.body } />
+                        <div className="email-preview-body">
+                            <h3 className="subject">{ email.subject }</h3>
+                            <LongTxt className="ebody" txt={ email.body } />
+                        </div>
                         <h3 className="sent-at">{ emailService.getFormatAMPM(email.sentAt) }</h3>
                     </div>
                 </Link >

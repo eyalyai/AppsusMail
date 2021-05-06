@@ -56,8 +56,6 @@ export class EmailDetails extends React.Component {
         </div>
     }
 
-    //     getShortDescription = (description) => {
-    //         return description.substring(0, 100) + '...'
-    //     }
+
 
 }

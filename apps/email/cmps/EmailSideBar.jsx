@@ -10,7 +10,7 @@ export function EmailSideBar({ emails }) {
 
     return (
         <div className="email-sidebar">
-            <button className="add-email-btn" onClick={ onAddEmail }>+ Compose
+            <button className="add-email-btn flex" onClick={ onAddEmail }><img src="apps/email/assets/img/add.png" alt="delete" /> Compose
                 </button>
             <div>
                 <EmailNav emails={ emails } />
