@@ -64,13 +64,13 @@ export class KeepPreview extends React.Component {
         }
     }
 
-    NotePanel = () => {
+    ModalPanel = () => {
         if (!this.state.isEdit)
-            return <div className="note-panel">
-                <input name="backgroundColor" type="color" onChange={this.handleColorChange} />
-                <button className="edit-btn" onClick={() => { this.setState({ isEdit: true }) }}>edit</button>
-                <button className="pin-btn" onClick={() => { this.props.changePin(this.state.note) }}>pin</button>
-                <button className="remove-note-btn" onClick={() => { this.props.onDeleteNote(this.state.note) }}>remove</button>
+            return <div className="modal-panel">
+                <input className="btn" name="backgroundColor" type="color" onChange={this.handleColorChange} />
+                <button className="btn edit-btn" onClick={() => { this.setState({ isEdit: true }) }}></button>
+                <button className="btn pin-btn" onClick={() => { this.props.changePin(this.state.note) }}></button>
+                <button className="btn remove-btn" onClick={() => { this.props.onDeleteNote(this.state.note) }}></button>
             </div> 
 
 
@@ -92,9 +92,9 @@ export class KeepPreview extends React.Component {
                 ev.preventDefault();
                 this.onEditNote()
             }}>
-                <button onClick={() => { this.setState({ isEdit: false }) }} className="icon">{'<'}</button>
+                <button onClick={() => { this.setState({ isEdit: false }) }} className="btn">{'<'}</button>
                 <input placeholder={placeHolderText} name="editNote"
-                    type="text" onInput={this.handleTextChange} /><button className="icon">+</button>
+                    type="text" onInput={this.handleTextChange} /><button className="btn">+</button>
         </form>
     }
 
@@ -138,7 +138,7 @@ export class KeepPreview extends React.Component {
         if (!this.state.note) return 'loading...'
         return <article className="keep-preview">
             <this.DynamicCmp note={this.props.note} />
-            <this.NotePanel />
+            <this.ModalPanel />
 
         </article>
     }
