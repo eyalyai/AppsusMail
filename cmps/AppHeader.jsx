@@ -21,21 +21,20 @@ class _AppHeader extends React.Component {
 
     render() {
         return (
-            <nav className="app-header">
-                {/* <h1>MissBook Shop</h1> */ }
-                <div className="logo"><a href="index.html">MissBook</a></div>
-                <ul className="clean-list">
+            <nav className="app-header flex space-around align-center ">
+                <span className="logo">MissBook</span>
+                <ul className="app-main-nav clean-list">
                     <li><NavLink exact to="/" activeClassName="active-nav">Home</NavLink></li>
                     <li><NavLink exact to="/about">About</NavLink></li>
                     <li><NavLink exact to="/mail">Email</NavLink></li>
                     <li><NavLink exact to="/keep">Keep</NavLink></li>
-                    <li><button onClick={ () => {
+                    {/* <li><button className="btn" onClick={ () => {
                         this.props.history.goBack()
-                    } }>Back</button></li>
+                    } }>Back</button></li> */}
                 </ul>
-                <span>
+                {/* <span>
                     Books Available: { this.state.bookCount }
-                </span>
+                </span> */}
             </nav>
         )
     }

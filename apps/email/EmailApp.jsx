@@ -66,7 +66,7 @@ export class EmailApp extends React.Component {
                     <EmailStatus emails={ emails } />
                 </header>
                 <section className="main-email">
-                    <div >
+                    <div className="sidebar">
                         <EmailSideBar emails={ emails } />
                     </div>
                     <div className="mail-container">

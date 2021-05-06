@@ -1,9 +1,11 @@
 .email-sidebar {
-    margin: 1em;
+    margin-right: 1em;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     min-width: 200px;
+    height: 100%;
+    border-right: 1px solid #21252957;
 }
 
 .add-email-btn {
@@ -13,12 +15,11 @@
     margin: 5px 20px;
     box-shadow: 0px 1px 2px 0.5px rgb(59 58 58);
     color: #3c4043;
-    width: 14vw;
+    min-width: 14vw;
     cursor: pointer;
-    /* font-family: inherit; */
     font-weight: 700;
     border-radius: 22px;
-    min-width: 56px;
+    min-width: 140px;
     height: 48px;
     font-family: 'Google Sans', Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
     font-size: .875rem;
@@ -30,7 +31,7 @@
 
 .add-email-btn img {
     object-fit: cover;
-    max-width: 2vw;
+    width: 15px
 }
 
 .add-email-btn:hover {
@@ -55,14 +56,14 @@
 .email-nav>* {
     margin: 0.4em 0 0 0;
     padding: 1vh 1.5em;
-    min-width: 150px;
+    min-width: 170px;
     border-end-end-radius: 20px;
     border-start-end-radius: 20px;
     cursor: pointer;
 }
 
 .email-nav>*:hover {
-    background-color: lightcoral;
+    background-color: #fce8e6;
 }
 
 .email-nav>*:visited {
@@ -71,5 +72,5 @@
 
 .email-nav ul>img {
     object-fit: cover;
-    max-width: 1.5vw;
+    width: 15px;
 }
