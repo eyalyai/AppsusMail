@@ -1,54 +1,76 @@
 import { keepService } from '../services/keep-service.js'
+const Router = ReactRouterDOM.HashRouter
 const { Route, Switch, Link, NavLink } = ReactRouterDOM
+import { showUserMsg } from '../../../services/event-bus-service.js'
 
 export class AddNote extends React.Component {
-
+    
     state = {
-        inputVal:null
+        inputVal: null,
+        type: null
     }
-
     componentDidMount() {
-    
-
+        this.setState({type:'NoteText'})
     }
 
-    handleChange = ({ target }) => {
-    
-        const value = target.type === 'number' ? +target.value : target.value
-        this.setState({inputVal: value})
-    }
 
-    addTextInput = () => {
+    DynamicInput = () => {
+        var placeHolderText = ''
+        switch (this.state.type) {
+            case 'NoteText': placeHolderText = 'Enter text'
+                break;
+            case 'NoteImg': placeHolderText = 'Enter image url'
+                break;
+            case 'NoteTodos': placeHolderText = 'Enter notes saperated by ,'
+                break;
+            case 'NoteVideo': placeHolderText = 'Enter video url'
+                break;
+        }
         return <form onSubmit={(ev) => {
             ev.preventDefault();
-            this.onAddTextNote(ev)
-        }}> <input type="text" onInput={this.handleChange} /><button>+</button></form>
+            this.onAddTextNote()
+        }}> <input placeholder={placeHolderText} type="text" onInput={this.handleChange} /><button className="icon">+</button></form>
     }
 
-    onAddTextNote = (ev) => {
-        ev.preventDefault()
-        keepService.addNote('NoteText', { txt: this.state.inputVal }).then(() => {
-            this.props.onSaveNote()
-            console.log(this.props)
+    onAddTextNote = () => {
+        if(!this.state.inputVal||!this.state.inputVal.length===0) return
+        var info = { txt: this.state.inputVal }
 
+        switch (this.state.type) {
+            case 'NoteText': info = { txt: this.state.inputVal }
+                break;
+            case 'NoteImg': info = { url: this.state.inputVal, title: 'My image' }
+                break;
+            case 'NoteTodos': {
+                const todos = this.state.inputVal.split(',').map(todo => { return { txt: todo, doneAt: null } })
+                info = { label: 'New Todo', todos }
+            }
+                break;
+            case 'NoteVideo': info = { url: this.state.inputVal }
+                break;
+            
+        }
+        keepService.addNote(this.state.type, info).then(() => {
+            this.props.onSaveNote()
+            // showUserMsg('Added Note!','success')
         })
     }
 
-
+    handleChange = ({ target }) => {
+        const value = target.value
+        this.setState({ inputVal: value })
+    }
     render() {
         return (
             <div className="add-note-container">
                 <nav>
-                    <NavLink to={`/keep/TextNote`}>Add Text</NavLink>
-                    <NavLink to={`/keep/ImgNote`}>Add Img</NavLink>
-                    <NavLink to={`/keep/TodoNote`}>Add Todo</NavLink>
+                    <button className="txt-btn" onClick={() => { this.setState({ type: 'NoteText' }) }}>txt</button>
+                    <button className="img-btn" onClick={() => { this.setState({ type: 'NoteImg' }) }}>img</button>
+                    <button className="todo-btn" onClick={() => { this.setState({ type: 'NoteTodos' }) }}>todos</button>
+                    <button className="video-btn" onClick={() => { this.setState({ type: 'NoteVideo' }) }}>video</button>
                 </nav>
 
-                <Switch>
-                    <Route component={this.addTextInput} path={`/keep/TextNote`} />
-                    <Route component={this.addImgInput} path={`/keep/ImgNote`} />
-                    <Route component={this.addTodoInput} path={`/keep/TodoNote`} />
-                </Switch>
+                <this.DynamicInput />
             </div>
         )
     }
