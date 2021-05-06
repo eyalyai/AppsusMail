@@ -19,6 +19,9 @@ html {
 .email-header {
     display: flex;
     align-items: center;
+    width: 100vw;
+    padding: 1em;
+    background-color: #e6e6e6;
 }
 
 .email-header h1 {
@@ -33,6 +36,10 @@ html {
     list-style-type: none;
     margin: 0;
     padding: 0;
+}
+
+.emails-container {
+    margin-top: 1em;
 }
 
 .main-email {

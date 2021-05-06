@@ -12,7 +12,7 @@ export class EmailStatus extends React.Component {
 
     componentDidMount() {
         this.countData()
-        this.removeStatueLis = eventBusService.on('email-status', () => countData())
+        this.removeStatueLis = eventBusService.on('email-status', () => this.countData())
     }
 
     componentWillUnmount() {

@@ -6,7 +6,6 @@ import { eventBusService } from "./services/event-bus-service.js"
 import { EmailList } from './cmps/EmailList.jsx'
 import { EmailSideBar } from './cmps/EmailSideBar.jsx'
 import { EmailFilter } from './cmps/EmailFilter.jsx'
-import { EmailStatus } from './cmps/EmailStatus.jsx'
 import { EmailCompose } from './cmps/EmailCompose.jsx'
 
 
@@ -38,7 +37,7 @@ export class EmailApp extends React.Component {
         emailService.query(this.state.filterBy)
             .then((emails) => {
                 this.setState({ emails: emails })
-                // eventBusService.emit('email-status')
+                eventBusService.emit('email-status')
             })
     }
 
@@ -60,16 +59,14 @@ export class EmailApp extends React.Component {
         if (!emails) return <div>Loading...</div>
         return (
             <div className="email-app">
-                <header className="email-header">
-                    <h1>Email app</h1>
+                <header className="email-header flex align-center">
                     <EmailFilter emails={ emails } filterBy={ filterBy } onSetFilter={ this.onSetFilter } />
-                    <EmailStatus emails={ emails } />
                 </header>
                 <section className="main-email">
                     <div className="sidebar">
                         <EmailSideBar emails={ emails } />
                     </div>
-                    <div className="mail-container">
+                    <div className="emails-container">
                         { (this.state.isCompose) ? <EmailCompose /> : <EmailList emails={ emails } loadEmails={ this.loadEmails } /> }
                     </div>
                 </section>

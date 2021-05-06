@@ -1,3 +1,4 @@
+import { EmailStatus } from './EmailStatus.jsx'
 export class EmailFilter extends React.Component {
     state = {
         filterBy: {
@@ -29,7 +30,7 @@ export class EmailFilter extends React.Component {
         const { sender, subject, body } = this.state.filterBy
 
         return (
-            <section className="email-search flex">
+            <section className="email-search flex align-center space-between">
                 <form className="email-filterby flex wrap justify-center" onSubmit={ this.onFilter }>
 
                     <input type="text" id="sender" name="sender" placeholder="By Sender" value={ sender }
@@ -40,6 +41,7 @@ export class EmailFilter extends React.Component {
 
                     <input type="text" id="body" name="body" value={ body } placeholder="By Body" onChange={ this.handleChange } />
                 </form>
+                <EmailStatus emails={ this.props.emails } />
             </section>
             // <div>
             //     <select className="mail-filter-by" name="readStatus" onChange={ this.handleChange }>
