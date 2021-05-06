@@ -1,5 +1,6 @@
 /* HELPERS */
 
+
 /* flex helpers */
 
 .flex {
@@ -18,6 +19,7 @@
     flex-direction: column;
 }
 
+
 /* list helpers */
 
 .clean-list2 {
@@ -25,17 +27,4 @@
     text-decoration: none;
     margin: 0;
     padding: 0;
-}
-
-.btn {
-    box-shadow: #95959559 0px 1px 3px;
-    height: 100%;
-    padding: 0.3em 1em;
-    width: 100%;
-    border-radius: 5px;
-    
-}
-
-.btn:hover {
-    
 }
