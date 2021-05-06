@@ -1,9 +1,9 @@
 // import { emailService } from '../services/email.service.js';
-// import { eventBusService } from '../services/event-bus-service.js';
+import { eventBusService } from '../services/event-bus-service.js';
 
 
 export class EmailStatus extends React.Component {
-    removeEvent;
+    removeStatueLis;
     state = {
         emailCount: 0,
         readCount: 0,
@@ -12,17 +12,23 @@ export class EmailStatus extends React.Component {
 
     componentDidMount() {
         this.countData()
+        this.removeStatueLis = eventBusService.on('email-status', () => countData())
+    }
+
+    componentWillUnmount() {
+        this.removeStatueLis()
     }
 
 
     countData = () => {
         let readCount = 0
+        console.log(this.props);
         const { emails } = this.props
         const emailCount = emails.length
         this.props.emails.forEach(email => {
             if (email.isRead) readCount++
         });
-        // this.setState({ emailCount }, { readCount }, { unreadCount: (emailCount - readCount) })
+        this.setState({ emailCount, readCount, unreadCount: (emailCount - readCount) })
     }
 
     render() {

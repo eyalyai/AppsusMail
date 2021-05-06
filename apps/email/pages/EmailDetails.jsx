@@ -1,15 +1,19 @@
 const { Link, Route } = ReactRouterDOM
 import { emailService } from '../services/email.service.js'
 import { EmailSideBar } from '../cmps/EmailSideBar.jsx'
+import { eventBusService } from "../services/event-bus-service.js"
+
 
 export class EmailDetails extends React.Component {
 
     state = {
         email: null
+
     }
 
     componentDidMount() {
         this.loadEmail()
+        eventBusService.emit('email-status')
     }
 
     loadEmail() {
@@ -19,15 +23,23 @@ export class EmailDetails extends React.Component {
                 console.log(email);
                 if (!email) return this.props.history.push('/')
                 this.setState({ email })
+                console.log(email);
+                this.changeReadStatue(this.state.email.id)
             })
+
+    }
+
+    changeReadStatue = (id) => {
+        console.log(id);
+        emailService.updateReadStatue(id)
     }
 
     onDelete = () => {
         emailService.deleteEmail(this.state.email.id)
-        .then(() => {
-            this.props.loadEmails()
-            eventBusService.emit('update-statistics')
-        })
+            .then(() => {
+                this.props.loadEmails()
+                eventBusService.emit('update-statistics')
+            })
         return this.props.history.push('/mail')
     }
 

@@ -6,7 +6,8 @@ export const emailService = {
     getFormatAMPM,
     getEmailById,
     deleteEmail,
-    saveEmail
+    saveEmail,
+    updateReadStatue
 }
 
 const KEYMAIL = 'emails'
@@ -183,63 +184,17 @@ function deleteEmail(emailId) {
     return Promise.resolve()
 
 }
+
+function updateReadStatue(emailId) {
+    var emailIdx = gEmails.findIndex(function (email) {
+        return emailId === email.id
+    })
+    gEmails[emailIdx].isRead = true;
+
+}
+
 function saveEmail(email) {
     gSentEmails.push(email)
     console.log('saved to sent', gSentEmails)
     _saveEmailsToStorage(KEYSENT, gSentEmails)
 }
-
-// function saveBook(book) {
-//     return book.id ? _updateBook(book) : _addBook(book);
-// }
-
-// function _addBook(bookToAdd) {
-//     var book = _createbook(bookToAdd.title, bookToAdd.price)
-//     gEmails.unshift(book)
-//     _saveBooksToStorage();
-//     return Promise.resolve(book)
-// }
-
-
-// function _updateBook(bookToUpdate) {
-//     var bookIdx = gEmails.findIndex(function (book) {
-//         return book.id === bookToUpdate.id;
-//     })
-//     gEmails.splice(bookIdx, 1, bookToUpdate)
-//     _saveBooksToStorage();
-//     return Promise.resolve(bookToUpdate)
-// }
-// function getNextBookId(bookId) {
-//     const bookIdx = gEmails.findIndex(book => book.id === bookId)
-//     var nextBookIdx = bookIdx + 1
-//     nextBookIdx = nextBookIdx === gEmails.length ? 0 : nextBookIdx
-//     return gEmails[nextBookIdx].id
-// }
-
-//TODO: create Emails
-
-// function _createBook(title, price) {
-//     if (!price) price = utilService.getRandomIntInclusive(1, 200)
-//     return {
-//         id: utilService.makeId(),
-//         title,
-//         price,
-//         desc: utilService.makeLorem()
-//     }
-// }
-
-// function _createBooks() {
-//     var books = storageService.loadFromStorage(KEY)
-//     if (!books || !books.length) {
-//         books = []
-//         for (let i = 0; i < 20; i++) {
-//             var title = gEmails[i].title
-//             console.log(title)
-//             books.push(_createBook(title))
-//         }
-//     }
-//     gEmails = books;
-//     _saveBooksToStorage();
-// }
-
-
