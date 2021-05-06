@@ -6,6 +6,7 @@
 .add-note-container nav a {
     text-decoration: none;
     color: green;
+    /* color:#f4ab63; */
 }
 
 .add-note-container form {
@@ -21,4 +22,18 @@
     left: 0;
     width: 100vw;
     height: 100%;
+}
+
+.txt-btn {}
+
+.img-btn {
+    background-image: url(../imgs/basic_photo.png);
+}
+
+.todo-btn {
+    background-image: url(../imgs/basic_todolist_pen.png);
+}
+
+.video-btn {
+    background-image: url(../imgs/basic_video.png);
 }

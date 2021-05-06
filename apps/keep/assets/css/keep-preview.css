@@ -4,17 +4,22 @@
     padding: 10px;
     background-color: rgba(251, 94, 94, 0.678);
     width: 100%;
+    /* height: 250px; */
     border-radius: 10px;
     align-items: center;
     margin-bottom: 10px;
+    object-fit: cover;
 }
 
-.note-panel {
-    padding: 20px;
+.modal-panel {
     display: flex;
+    justify-content: space-around;
+    width: 200px;
+    /* padding: 20px; */
+    /* display: flex; */
 }
 
-.note-panel input[type=color] {
+.modal-panel input[type=color] {
     height: 40px;
     width: 40px;
     border-width: 0;
@@ -31,4 +36,32 @@
 .keep-preview form {
     display: flex;
     padding: 5px;
+}
+
+.todo-container {
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    align-items: center;
+}
+
+.todos-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-btn {
+    background-image: url(../imgs/edit-button.png);
+}
+
+.pin-btn {
+    background-image: url(../imgs/basic_pin1.png);
+}
+
+.bcg-btn {
+    background-image: url(../imgs/paint-board-and-brush.png);
+}
+
+.remove-btn {
+    background-image: url(../imgs/trash.png);
 }
