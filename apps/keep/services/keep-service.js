@@ -123,7 +123,7 @@ function _createNotes() {
             isPinned: false,
             type: "NoteImg",
             info: {
-                url: "https://images.app.goo.gl/QFyAEr95mgz8VCRf9",
+                url: "",
                 title: "Me playing Mi",
                 style: {
                     backgroundColor: "#8F00F5"
