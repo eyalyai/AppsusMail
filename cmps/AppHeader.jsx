@@ -22,7 +22,7 @@ class _AppHeader extends React.Component {
     render() {
         return (
             <nav className="app-header flex space-around align-center ">
-                <span className="logo">MissBook</span>
+                <span className="logo">Appsus</span>
                 <ul className="app-main-nav clean-list">
                     <li><NavLink exact to="/" activeClassName="active-nav">Home</NavLink></li>
                     <li><NavLink exact to="/about">About</NavLink></li>
