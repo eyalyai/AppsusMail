@@ -1,77 +1,145 @@
-const { Link } = ReactRouterDOM
-import { keepService } from "../services/keep-service.js"
-import { NoteTxt } from "../pages/NoteTxt.jsx"
-import { NoteTodos } from "../pages/NoteTodos.jsx"
-import { NoteImg } from "../pages/NoteImg.jsx"
-// import { NoteVideo } from "../pages/NoteVideo.jsx"
+import { keepService } from '../services/keep-service.js'
+import { showUserMsg } from '../../../services/event-bus-service.js'
 
 export class KeepPreview extends React.Component {
 
     state = {
         note: null,
+        isEdit: false,
+        inputVal: ''
+
     }
+
     componentDidMount() {
         this.loadNote()
     }
 
     loadNote = () => {
         this.setState({ note: this.props.note })
-        // console.log(this.props.note)
-    }
-
-    NoteImg = (props) => {
-        return <img className="note-img" src={props.note.info.url} alt={props.note.info.title} />
-    }
-    NoteTxt = (props) => {
-        return <p>{props.note.info.txt}</p>
     }
 
     NoteTodos = (props) => {
         return <div className="todos-list">
-            {props.note.info.todos.map((todo, idx) => {
-                return <div className="todos-container" key={idx} onClick={() => {
-                    todo.doneAt = (todo.doneAt) ? null : Date.now();
-                    keepService.saveNote(props.note)
-                    this.loadNote()
-                }}>
-                    <p className={`todo ${todo.doneAt && 'todo-done'}`}>{todo.txt}</p>
-                    {todo.doneAt && <span>{Intl.DateTimeFormat('IL-il').format(todo.doneAt)}</span>}
-                </div>
-            })
+            {
+                props.note.info.todos.map((todo, idx) => {
+                    return <div key={idx} className="todo-container" onClick={() => {
+                        todo.doneAt = (todo.doneAt) ? null : Date.now()
+                        keepService.saveNote(props.note)
+                        this.loadNote()
+                    }}>
+                        <p className={`todo ${todo.doneAt && 'todo-done'}`}>{todo.txt}</p>
+                        {todo.doneAt && <span>{Intl.DateTimeFormat('IL-il').format(todo.doneAt)}</span>}
+                    </div>
+                })
             }
         </div>
+
+    }
+
+
+    NoteImg = (props) => {
+        return <img className="img-note" src={props.note.info.url} alt={props.note.info.title} />
+    }
+
+    NoteText = (props) => {
+        return <p>{props.note.info.txt} </p>
+    }
+
+    NoteVideo = (props) => {
+        return <iframe height="400px" width="100%" frameBorder="0" allowFullScreen src={props.note.info.url}></iframe>
     }
 
     DynamicCmp = (props) => {
-        // console.log(props.note.type)
         switch (props.note.type) {
-            case 'NoteText':
-                return <this.NoteTxt {...props} />
-            case 'NoteImg':
-                return <this.NoteImg {...props} />
             case 'NoteTodos':
                 return <this.NoteTodos {...props} />
+            case 'NoteImg':
+                return <this.NoteImg {...props} />
+            case 'NoteText':
+                return <this.NoteText {...props} />
+            case 'NoteVideo':
+                return <this.NoteVideo {...props} />
             default:
-                return console.log('failed')
+                return <h1>nana</h1>
         }
     }
 
-    handleChange = ({ target }) => {
-        const field = target.name;
-        const val = target.type === 'number' ? +target.value : target.value;
-        this.setState(prevState => ({
-            review: {
-                ...prevState.review,
-                [field]: val
-            }
-        }))
+    NotePanel = () => {
+        if (!this.state.isEdit)
+            return <div className="note-panel">
+                <input name="backgroundColor" type="color" onChange={this.handleColorChange} />
+                <button className="edit-btn" onClick={() => { this.setState({ isEdit: true }) }}>edit</button>
+                <button className="pin-btn" onClick={() => { this.props.changePin(this.state.note) }}>pin</button>
+                <button className="remove-note-btn" onClick={() => { this.props.onDeleteNote(this.state.note) }}>remove</button>
+            </div> 
+
+
+        console.log(this.state.note.type)
+        var placeHolderText = ''
+        const { info } = this.state.note
+        switch (this.state.note.type) {
+            case 'NoteText': placeHolderText = info.txt
+                break;
+            case 'NoteImg':
+            case 'NoteVideo': placeHolderText = info.url
+                break;
+            case 'NoteTodos': placeHolderText = info.todos.map(todo => { return todo.txt }).join(',')
+                break;
+
+        }
+
+        return <form onSubmit={(ev) => {
+                ev.preventDefault();
+                this.onEditNote()
+            }}>
+                <button onClick={() => { this.setState({ isEdit: false }) }} className="icon">{'<'}</button>
+                <input placeholder={placeHolderText} name="editNote"
+                    type="text" onInput={this.handleTextChange} /><button className="icon">+</button>
+        </form>
     }
 
+    onEditNote = () => {
+        var note = this.state.note
+        const { inputVal } = this.state
+        switch (this.state.note.type) {
+            case 'NoteText': note.info.txt = inputVal
+                break;
+            case 'NoteImg':
+            case 'NoteVideo': note.info.url = inputVal
+                break;
+            case 'NoteTodos': {
+                note.info.todos = this.state.inputVal.split(',').map(todo => { return { txt: todo, doneAt: null } })
+
+            }
+                break;
+
+        }
+        console.log(inputVal)
+        keepService.saveNote(note)
+        this.setState({ note, isEdit: false })
+
+    }
+
+    handleTextChange = ({ target }) => {
+        // showUserMsg('Note Updated!','success')
+        this.setState({ inputVal: target.value })
+    }
+
+
+    handleColorChange = ({ target }) => {
+        const field = target.name
+        const value = target.value
+        var { note } = this.state
+        note.info.style.backgroundColor = value;
+        keepService.saveNote(note)
+        this.setState({ note })
+    }
     render() {
-        console.log(this.props.note)
+        if (!this.state.note) return 'loading...'
         return <article className="keep-preview">
             <this.DynamicCmp note={this.props.note} />
+            <this.NotePanel />
+
         </article>
     }
-
 }

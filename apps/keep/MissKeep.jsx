@@ -8,11 +8,6 @@ export class MissKeep extends React.Component {
           
     }
 
-    componentDidMount() {
-        
-
-    }
-
     onSaveNote = (gNotes) => {
         this.setState({notes: gNotes})
     }

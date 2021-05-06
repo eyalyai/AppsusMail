@@ -1,189 +1,147 @@
-import {
-    utilService
-} from './util.service.js'
-import {
-    storageService
-} from './storage-service.js'
+import { utilService } from './util.service.js'
+import { storageService } from './storage-service.js'
+
+const KEY = 'notesDB'
 
 export const keepService = {
-    query,
-    getNoteById,
-    removeNote,
-    getNextNoteId,
-    saveNote,
+    getNotes,
     addNote,
-    editNote
-
-
+    saveNote,
+    removeNote
 }
 
-const KEY = 'notes'
-    // _createNotes()
-var gNotes = [{
-        type: "NoteText",
-        id: utilService.makeId(),
-        isPinned: true,
-        info: {
-            txt: "Fullstack Me Baby!"
-        }
-    },
-    {
-        type: "NoteImg",
-        id: utilService.makeId(),
-        isPinned: false,
-        info: {
-            url: "http://some-img/me",
-            title: "Me playing Mi"
-        },
-        style: {
-            backgroundColor: "#00d"
-        }
-    },
-    {
-        type: "NoteTodos",
-        id: utilService.makeId(),
-        isPinned: false,
-        info: {
-            label: "How was it:",
-            todos: [{
-                    txt: "Do that",
-                    doneAt: null
-                },
-                {
-                    txt: "Do this",
-                    doneAt: 187111111
-                }
-            ]
-        }
-    }
-]
+var gNotes = _createNotes()
 
-function query() {
-    if (notes) {
-        var {
-            notes
-        } = filterBy
-        const filteredNotes = gNotes.filter((note) => {
-            return note.type.includes(type)
-        })
-        return Promise.resolve(filteredNotes)
-    }
-    return Promise.resolve(gNotes)
+function getNotes() {
+    return Promise.resolve(gNotes);
 }
 
-
-
-
-function getNoteById(noteId) {
-    var note = gNotes.find((note) => {
-        return noteId === note.id
-    })
-    return Promise.resolve(note)
+function removeNote(note) {
+    gNotes.splice(findIdxById(note.id), 1)
+    storageService.saveToStorage(KEY, gNotes)
 }
 
-function getNextNoteId(noteId) {
-    const noteIdx = gNotes.findIndex(note => note.id === noteId)
-    var nextNoteIdx = noteIdx + 1
-    nextNoteIdx = nextNoteIdx === gNotes.length ? 0 : nextNoteIdx
-    return gNotes[nextNoteIdx].id
+function findIdxById(id) {
+    const idx = gNotes.findIndex(note => note.id === id)
+    return idx
 }
-
-function removeNote(noteId) {
-    var noteIdx = gNotes.findIndex(function(note) {
-        return noteId === note.id
-    })
-    gNotes.splice(noteIdx, 1)
-    _saveNotesToStorage();
-    return Promise.resolve()
-}
-
-
 
 function saveNote(note) {
-    gNotes[getNoteById(note)] = note
-    _saveNotesToStorage()
+    gNotes[findIdxById(note.id)] = note
+    storageService.saveToStorage(KEY, gNotes)
 }
 
-function editNote(newNote, noteId) {
-    return getNoteById(noteId)
-        .then((note) => {
-            note.info.txt = newNote.txt;
-            _saveNotesToStorage()
-            return Promise.resolve()
-        })
+function _createNotes() {
+    return (storageService.loadFromStorage(KEY)) ? storageService.loadFromStorage(KEY) : [{
+            id: utilService.makeId(),
+            type: "NoteText",
+            isPinned: true,
+            info: {
+                txt: "Fullstack Me Baby!",
+                style: {
+                    backgroundColor: "#B247FF"
+                }
+            }
 
-    .catch((err) => {
-        console.log(err)
-    })
+        },
+        {
+            id: utilService.makeId(),
+            isPinned: false,
+            type: "NoteImg",
+            info: {
+                url: "",
+                title: "Me playing Mi",
+                style: {
+                    backgroundColor: "#B247FF"
+                }
+            },
+
+        },
+        {
+            id: utilService.makeId(),
+            isPinned: false,
+            type: "NoteTodos",
+            info: {
+                label: "How was it:",
+                todos: [
+                    { txt: "Do that", doneAt: null },
+                    { txt: "Do this", doneAt: 187111111 }
+                ],
+                style: {
+                    backgroundColor: "#B247FF"
+                }
+            }
+        },
+        {
+            id: utilService.makeId(),
+            isPinned: false,
+            type: "NoteTodos",
+            info: {
+                label: "How was it:",
+                todos: [
+                    { txt: "Do that", doneAt: null },
+                    { txt: "Do this", doneAt: 187111111 }
+                ],
+                style: {
+                    backgroundColor: "#FF99FF"
+                }
+            }
+        },
+        {
+            id: utilService.makeId(),
+            isPinned: false,
+            type: "NoteTodos",
+            info: {
+                label: "How was it:",
+                todos: [
+                    { txt: "Do that", doneAt: null },
+                    { txt: "Do this", doneAt: 187111111 }
+                ],
+                style: {
+                    backgroundColor: "#4782ff"
+                }
+            }
+        },
+        {
+            id: utilService.makeId(),
+            isPinned: false,
+            type: "NoteTodos",
+            info: {
+                label: "How was it:",
+                todos: [
+                    { txt: "Do that", doneAt: null },
+                    { txt: "Do this", doneAt: 187111111 },
+                    { txt: "Do that", doneAt: null },
+                    { txt: "Do that", doneAt: null },
+                ],
+                style: {
+                    backgroundColor: "#475dff"
+                }
+            }
+        }, {
+            id: utilService.makeId(),
+            isPinned: false,
+            type: "NoteImg",
+            info: {
+                url: "https://images.app.goo.gl/QFyAEr95mgz8VCRf9",
+                title: "Me playing Mi",
+                style: {
+                    backgroundColor: "#8F00F5"
+                }
+            },
+
+        }
+    ]
+
 }
 
 function addNote(type, info) {
-    console.log(gNotes)
-    var newNote = {
+    gNotes.push({
         id: utilService.makeId(),
         isPinned: false,
         type,
         info
-    }
-    gNotes.push(newNote)
-    _saveNotesToStorage()
-    console.log(gNotes)
-    return Promise.resolve(gNotes)
-}
-
-function _saveNotesToStorage() {
+    })
     storageService.saveToStorage(KEY, gNotes)
+    return Promise.resolve()
 }
-
-
-
-
-// function addNote(note) {
-//     const newNote = {
-//         id: utilService.makeId(),
-//         type: note.type,
-//         isPinned: false,
-//         info: {
-//             txt: note.txt
-//         }
-//     }
-
-// function _createNote(type) {
-//     // if (!price) price = utilService.getRandomIntInclusive(1, 200)
-//     return {
-//         id: utilService.makeId(),
-//         isPinned: false,
-//         type,
-//         desc: utilService.makeLorem()
-//     }
-// }
-
-// function _createNotes() {
-//     let notes = storageService.loadFromStorage(KEY)
-//     if (!notes || !notes.length) {
-//         notes = gNotes
-//     }
-
-//     _saveNotesToStorage();
-// }
-
-// function saveNote(note) {
-//     return note.id ? _updateNote(note) : _addNote(note);
-// }
-
-// function _addNote(noteToAdd) {
-//     var note = _createNote(noteToAdd.title, noteToAdd.info)
-//     gNotes.unshift(note)
-//     _saveNotesToStorage();
-//     return Promise.resolve(note)
-// }
-
-
-// function _updateNote(noteToUpdate) {
-//     var noteIdx = gNotes.findIndex(function(note) {
-//         return note.id === noteToUpdate.id;
-//     })
-//     gNotes.splice(noteIdx, 1, noteToUpdate)
-//     _saveNotesToStorage();
-//     return Promise.resolve(noteToUpdate)
-// }
