@@ -16,7 +16,7 @@ export class MissKeep extends React.Component {
        
         return (
             <div className="keep-app">
-                <h1>MissKeep Main Page</h1>
+                <h1>MissKeep</h1>
 
                 <section className="main-keep">
                         <AddNote onSaveNote={this.onSaveNote} />

@@ -7,8 +7,13 @@
     /* height: 250px; */
     border-radius: 10px;
     align-items: center;
+    justify-content: space-between;
     margin-bottom: 10px;
-    object-fit: cover;
+    /* object-fit: cover; */
+}
+
+.keep-preview img {
+    margin-bottom: 10px;
 }
 
 .modal-panel {

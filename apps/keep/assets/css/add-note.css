@@ -1,6 +1,6 @@
 .add-note-container nav {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .add-note-container nav a {
