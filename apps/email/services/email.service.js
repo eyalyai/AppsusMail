@@ -11,6 +11,8 @@ export const emailService = {
 
 const KEYMAIL = 'emails'
 const KEYSENT = 'sent'
+const KEYDRAFT = 'draft'
+const KEYSTARRED = 'starred'
 var gEmails = [
     {
         'id': 'OXeMG8wNskc',
@@ -100,18 +102,43 @@ var gSentEmails = []
 
 //TODO: configure filterBy, return emails 
 //readStatue contain true or false
-function query(filterBy) {
+function query(filterBy, byCtg = null) {
     const storageMail = _loadEmailsFromStorage(KEYMAIL)
-    const emails = (storageMail) ? storageMail : gEmails
+    var emails;
+    if (byCtg) emails = _getEmailByCtg(byCtg)
+    else emails = (storageMail) ? storageMail : gEmails
     _sortBySentAt(emails)
+    console.log('filterBy', filterBy)
+
     if (filterBy) {
-        var { title, readStatue } = filterBy
-        const filteredEmails = emails.filter((book) => {
-            return book.title.includes(title) && email.isRead === readStatue
+        var { subject, sender, body } = filterBy
+        sender = (sender) ? sender : ''
+        subject = (subject) ? subject : ''
+        body = (body) ? body : ''
+        const filteredEmails = emails.filter((email) => {
+            return (
+                email.sender.includes(sender) &&
+                email.subject.includes(subject) &&
+                email.body.includes(body)
+            )
         })
         return Promise.resolve(filteredEmails)
     }
     return Promise.resolve(emails)
+}
+
+
+function _getEmailByCtg(byCtg) {
+    var emails;
+    switch (byCtg) {
+        case 'sent':
+            return emails = _loadEmailsFromStorage(KEYSENT) ? _loadEmailsFromStorage(KEYSENT) : ''
+        case 'draft':
+            return emails = _loadEmailsFromStorage(KEYDRAFT) ? _loadEmailsFromStorage(KEYDRAFT) : ''
+        case 'starred':
+            return emails = _loadEmailsFromStorage(KEYSTARRED) ? _loadEmailsFromStorage(KEYSTARRED) : ''
+        default: console.log('no match')
+    }
 }
 
 

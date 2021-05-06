@@ -8,10 +8,8 @@ function onAddEmail() {
 
 export function EmailSideBar({ emails }) {
 
-    // onClick={() => { this.toggleCompose() }
     return (
         <div className="email-sidebar">
-            {/* TODO add <EmailCompose> */ }
             <button className="add-email-btn" onClick={ onAddEmail }>+ Compose
                 </button>
             <div>

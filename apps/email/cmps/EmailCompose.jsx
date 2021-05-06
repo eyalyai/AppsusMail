@@ -4,6 +4,7 @@
 • Yes, we are only supporting selfi-emails for now (-: */}
 
 import { emailService } from "../services/email.service.js"
+import { eventBusService } from "../services/event-bus-service.js"
 import { utilService } from "../services/util.service.js"
 
 export class EmailCompose extends React.Component {
@@ -23,14 +24,11 @@ export class EmailCompose extends React.Component {
     onSaveEmail = (ev) => {
         ev.preventDefault()
         emailService.saveEmail(this.state.email)
-            .then(() => {
-                this.props.history.goBack()
-            })
+        eventBusService.emit('add-email')
     }
 
-    onDeleteCompose = (ev) => {
-        ev.preventDefault()
-        this.props.history.goBack()
+    onDeleteCompose = () => {
+        eventBusService.emit('add-email')
     }
 
     handleChange = ({ target }) => {
@@ -53,7 +51,7 @@ export class EmailCompose extends React.Component {
             <form className="flex column" onSubmit={ this.onSaveEmail }>
                 <div>
                     <label htmlFor="to">To</label>
-                    <input type="email" name="to" id="to" value={ to } onChange={ this.handleChange } />
+                    <input type="email" name="to" id="to" value={ to } required onChange={ this.handleChange } />
                 </div>
                 {/* <label htmlFor="cc">Cc</label>
                 <input type="email" name="cc" id="cc" value={ cc } onChange={ this.handleChange } />
@@ -61,19 +59,18 @@ export class EmailCompose extends React.Component {
                 <input type="email" name="bcc" id="bcc" value={ Bcc } onChange={ this.handleChange } /> */}
                 <div className="flex">
                     <label htmlFor="subject">Subject</label>
-                    <input type="text" name="subject" id="subject" value={ subject } onChange={ this.handleChange } />
+                    <input type="text" name="subject" id="subject" value={ subject } required onChange={ this.handleChange } />
                 </div>
 
                 <div className="flex">
                     <textarea rows="10" cols="50" type="text" name="compose-body" id="compose-body" name="body"
-                        value={ body } onChange={ this.handleChange } />
+                        value={ body } required onChange={ this.handleChange } />
                 </div>
                 <div className="flex ">
-                    <button className="send-email-btn" onClick={ this.onSaveEmail }>Sent</button>
-                    <button className="goback" onClick={ this.onDeleteCompose }>Delete</button>
+                    <button className="send-email-btn" type="submit" >Sent</button>
                 </div>
-
             </form>
+            <button className="goback" onClick={ () => this.onDeleteCompose }>Delete</button>
         </div>
 
     }

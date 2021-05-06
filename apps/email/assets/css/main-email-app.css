@@ -2,14 +2,13 @@
     box-sizing: border-box;
 }
 
-/* html {
+html {
     font-family: Arial, Helvetica, sans-serif;
-} */
+}
 
 .email-app {
     display: flex;
     flex-direction: column;
-    /* margin: 1em; */
     background-color: #fff;
 }
 
@@ -25,9 +24,9 @@
 .email-header h1 {
     padding: 0 1em;
 }
+
 .email-header h1 {
     padding: 0 1em;
-
 }
 
 .clean-list {
@@ -39,5 +38,3 @@
 .main-email {
     display: flex;
 }
-
-

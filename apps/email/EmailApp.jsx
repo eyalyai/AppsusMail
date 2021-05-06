@@ -11,7 +11,8 @@ import { EmailCompose } from './cmps/EmailCompose.jsx'
 
 
 export class EmailApp extends React.Component {
-    removeEvent;
+    removeAddEmail;
+    removeDeleteEmail;
     state = {
         emails: null,
         filterBy: null,
@@ -20,20 +21,24 @@ export class EmailApp extends React.Component {
 
     componentDidMount() {
         this.loadEmails()
-        this.removeEvent = eventBusService.on('add-email', () => {
+        this.removeAddEmail = eventBusService.on('add-email', () => {
             this.toggleCompose()
+        })
+        this.removeDeleteEmail = eventBusService.on('delete-email', (emailId) => {
+            this.onDeleteEmail(emailId)
         })
     }
 
     ComponentWillUnmount() {
-        this.removeEvent()
+        this.removeAddEmail()
+        this.removeDeleteEmail()
     }
 
     loadEmails = () => {
         emailService.query(this.state.filterBy)
             .then((emails) => {
                 this.setState({ emails: emails })
-                console.log(this.state.emails);
+                // console.log(this.state.emails);
             })
     }
 
@@ -43,6 +48,11 @@ export class EmailApp extends React.Component {
 
     toggleCompose = () => {
         this.setState({ isCompose: !this.state.isCompose })
+    }
+
+    onDeleteEmail = (emailID) => {
+        emailService.deleteEmail(emailID);
+        this.loadEmails()
     }
 
     render() {
@@ -60,7 +70,7 @@ export class EmailApp extends React.Component {
                         <EmailSideBar emails={ emails } />
                     </div>
                     <div className="mail-container">
-                        { (this.state.isCompose) ? <EmailCompose /> : <EmailList emails={ emails } /> }
+                        { (this.state.isCompose) ? <EmailCompose /> : <EmailList emails={ emails } loadEmails={ this.loadEmails } /> }
                     </div>
                 </section>
             </div>

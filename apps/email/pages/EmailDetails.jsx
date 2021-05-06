@@ -23,7 +23,11 @@ export class EmailDetails extends React.Component {
     }
 
     onDelete = () => {
-        emailService.deleteEmail(this.state.email.id);
+        emailService.deleteEmail(this.state.email.id)
+        .then(() => {
+            this.props.loadEmails()
+            eventBusService.emit('update-statistics')
+        })
         return this.props.history.push('/mail')
     }
 
