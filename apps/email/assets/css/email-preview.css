@@ -42,6 +42,7 @@
 .email-preview-info h3 {
     text-decoration: none;
     font-size: 1rem;
+    margin: 0;
 }
 
 .email-preview-info .sender {
@@ -72,5 +73,6 @@ h3.subject {
 
 .email-preview-btns .remove-btn img {
     object-fit: cover;
-    max-width: 2.5vw;
+    max-width: 2vw;
+    background-color: transparent;
 }

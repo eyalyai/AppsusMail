@@ -1,8 +1,42 @@
-.email-search {
+/* EmailFilter */
+
+.email-filter {
+    justify-content: space-around;
     padding: 5px 10px;
     font-family: inherit;
     border-radius: 5px;
     background-color: rgb(230, 230, 230);
     font-size: 1em;
     flex: 1;
+    gap: 10px;
+}
+
+.email-filterby>* {
+    border: none;
+    font-size: 1.1rem;
+    outline: 0;
+}
+
+.email-filter-ipt {
+    width: 100%;
+    height: 2.5rem;
+    padding: 0 1.6rem;
+    border-radius: 10px 0 0 10px;
+    appearance: none;
+    transition: 0.3;
+    transition-property: width;
+    z-index: 1;
+}
+
+.email-filter select {
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+    border-inline-start: 1px solid lightgray;
+}
+
+
+@media (max-width: 500px) {
+    .email-filter {
+        flex-direction: column;
+    }
 }

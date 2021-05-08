@@ -1,0 +1,25 @@
+/* EmailStatus */
+
+.status-wrapper {
+    width: 200px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.status-progress-bar {
+    width: 100%;
+    background-color: lightgray;
+    padding: 3px;
+    height: 25px;
+    border-radius: 3px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, .2);
+}
+
+.progress-bar-fill {
+    width: fit-content;
+    display: block;
+    height: 18px;
+    background-color: #659cef;
+    border-radius: 3px;
+    transition: width 500ms ease-in-out;
+}
