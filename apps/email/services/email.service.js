@@ -113,14 +113,14 @@ function query(filterBy, byCtg = null) {
 
     if (filterBy) {
         var { subject, sender, body } = filterBy
-        sender = (sender) ? sender : ''
-        subject = (subject) ? subject : ''
-        body = (body) ? body : ''
+        sender = (sender) ? sender.toLowerCase() : ''
+        subject = (subject) ? subject.toLowerCase() : ''
+        body = (body) ? body.toLowerCase() : ''
         const filteredEmails = emails.filter((email) => {
             return (
-                email.sender.includes(sender) &&
-                email.subject.includes(subject) &&
-                email.body.includes(body)
+                email.sender.toLowerCase().includes(sender) &&
+                email.subject.toLowerCase().includes(subject) &&
+                email.body.toLowerCase().includes(body)
             )
         })
         return Promise.resolve(filteredEmails)
