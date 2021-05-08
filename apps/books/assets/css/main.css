@@ -136,4 +136,10 @@ body {
         flex-direction: column;
         align-items: center
     }
+    .book-details {
+        display: flex;
+        flex-direction: column;
+        left: 0;
+        padding-left: 10px;
+    }
 }

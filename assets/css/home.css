@@ -55,6 +55,7 @@
     color: rosybrown;
 }
 
+
 /* backgroundimg */
 
 .background {
@@ -73,4 +74,16 @@
     backdrop-filter: blur(9px);
     height: 100vh;
     width: 100%;
+}
+
+@media (max-width: 500px) {
+    .home-nav-links {
+        flex-wrap: nowrap;
+        gap: 20px;
+    }
+    .home-nav-links a {
+        height: 75px;
+        width: 75px;
+        font-size: 1em;
+    }
 }
