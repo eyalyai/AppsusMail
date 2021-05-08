@@ -1,4 +1,5 @@
     @import "main-header.css";
+    @import "aboutus.css";
     @import "home.css";
     @import "helpers.css";
     @import "../../apps/books/assets/css/main.css";
@@ -18,13 +19,13 @@
         margin: 0;
         overflow-x: hidden;
     }
-
+    
     #root {
         display: flex;
         flex-direction: column;
         height: 100vh;
     }
-
+    
     .home-page {
         height: 100vh;
         background-image: url("");
@@ -35,7 +36,7 @@
         align-items: center;
         background-color: #fff;
     }
-
+    
     .background {
         /* background-image: url(https://source.unsplash.com/Q7PclNhVRI0); */
         background-image: url("/assets/img/wallpaper.jpg");
@@ -45,7 +46,7 @@
         height: 100vh;
         width: 100%;
     }
-
+    
     .blur {
         background: #4a4a4a33;
         /* #4a4a4a33 */
@@ -53,7 +54,7 @@
         height: 100vh;
         width: 100%;
     }
-
+    
     .home-hero-text {
         padding: 0 4em;
         display: flex;
@@ -62,11 +63,11 @@
         flex-wrap: wrap;
         gap: 10px;
     }
-
+    
     .home-hero-text> :not(:first-child) {
         /* margin-top: 100px; */
     }
-
+    
     .home-hero-text span:nth-child(even) {
         display: flex;
         align-items: center;
@@ -77,20 +78,20 @@
         width: 200px;
         border-radius: 50%;
     }
-
+    
     .home-hero-text span:nth-child(even):hover {
         background-color: #fff;
     }
-
+    
     .home-hero-text span:nth-child(even):hover a {
         color: rosybrown;
     }
-
+    
     .home-page h1 {
         text-align: center;
         font-size: 50px;
     }
-
+    
     .home-hero-text span {
         text-transform: capitalize;
         font-size: 35px;
@@ -101,19 +102,19 @@
         /* color: #fff; */
         text-shadow: 5px 5px 35px rgb(43 49 54 / 40%);
     }
-
+    
     .home-hero-text a {
         text-decoration: none;
         color: #ffffff;
     }
-
+    
     footer {
         width: 100vw;
         padding: 25px;
         background-color: #f2f2f2;
         align-self: center;
     }
-
+    
     footer small {
         color: #70757a;
     }
