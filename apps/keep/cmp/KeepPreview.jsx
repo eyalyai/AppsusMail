@@ -60,7 +60,7 @@ export class KeepPreview extends React.Component {
             case 'NoteVideo':
                 return <this.NoteVideo {...props} />
             default:
-                return <h1>nana</h1>
+                return console.log('error')
         }
     }
 
@@ -130,13 +130,13 @@ export class KeepPreview extends React.Component {
         const field = target.name
         const value = target.value
         var { note } = this.state
-        note.info.style.backgroundColor = value;
         // console.log(note.info.style.backgroundColor)
+        note.info.style.backgroundColor = value;
         keepService.saveNote(note)
         this.setState({ note })
     }
     render() {
-        if (!this.state.note) return 'loading...'
+        if (!this.state.note) return 'loading loading..'
         return <article className="keep-preview">
             <this.DynamicCmp note={this.props.note} />
             <this.ModalPanel />
