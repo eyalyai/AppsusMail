@@ -68,10 +68,10 @@ export class KeepPreview extends React.Component {
         if (!this.state.isEdit)
             return <div className="modal-panel">
                 <input className="btn" name="backgroundColor" type="color" onChange={this.handleColorChange} />
-                <button className="btn edit-btn" onClick={() => { this.setState({ isEdit: true }) }}></button>
-                <button className="btn pin-btn" onClick={() => { this.props.changePin(this.state.note) }}></button>
-                <button className="btn remove-btn" onClick={() => { this.props.onDeleteNote(this.state.note) }}></button>
-            </div> 
+                <button className="btn pin-btn" onClick={() => { this.props.changePin(this.state.note) }}><i className="fas fa-map-pin"></i></button>
+                <button className="btn edit-btn" onClick={() => { this.setState({ isEdit: true }) }}><i className="far fa-edit"></i></button>
+                <button className="btn remove-btn" onClick={() => { this.props.onDeleteNote(this.state.note) }}><i className="fas fa-trash"></i></button>
+            </div>
 
 
         console.log(this.state.note.type)
@@ -89,12 +89,12 @@ export class KeepPreview extends React.Component {
         }
 
         return <form onSubmit={(ev) => {
-                ev.preventDefault();
-                this.onEditNote()
-            }}>
-                <button onClick={() => { this.setState({ isEdit: false }) }} className="btn">{'<'}</button>
-                <input placeholder={placeHolderText} name="editNote"
-                    type="text" onInput={this.handleTextChange} /><button className="btn">+</button>
+            ev.preventDefault();
+            this.onEditNote()
+        }}>
+            <button onClick={() => { this.setState({ isEdit: false }) }} className="btn">{'<'}</button>
+            <input placeholder={placeHolderText} name="editNote"
+                type="text" onInput={this.handleTextChange} /><button className="btn">+</button>
         </form>
     }
 

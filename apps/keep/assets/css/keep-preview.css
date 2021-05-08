@@ -47,13 +47,6 @@
     padding: 5px;
 }
 
-
-/* .regular-container {
-    display: flex;
-    flex-direction: column;
-    column-count: 3;
-} */
-
 .todo-container {
     display: flex;
     justify-content: space-between;
@@ -70,18 +63,6 @@
     text-decoration: line-through;
 }
 
-.edit-btn {
-    background-image: url(../imgs/edit-button.png);
-}
-
-.pin-btn {
-    background-image: url(../imgs/basic_pin1.png);
-}
-
 .bcg-btn {
     background-image: url(../imgs/paint-board-and-brush.png);
-}
-
-.remove-btn {
-    background-image: url(../imgs/trash.png);
 }
