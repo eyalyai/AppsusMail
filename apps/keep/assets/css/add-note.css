@@ -1,16 +1,25 @@
-.add-note-container nav {
+/* .add-note-container {
     display: flex;
-    justify-content: space-evenly;
-}
+    flex-direction: row-reverse;
+    justify-content: center;
+    height: 50px;
+} */
 
-.add-note-container nav a {
-    text-decoration: none;
-    color: green;
-    /* color:#f4ab63; */
+.add-note-container nav {
+    /* display: flex; */
+    justify-content: space-around;
 }
 
 .add-note-container form {
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.add-note-container form input {
     margin-top: 10px;
+    margin-right: 10px;
+    height: 35px;
 }
 
 .modal-container {
@@ -24,14 +33,22 @@
     height: 100%;
 }
 
+.add-btn {
+    /* display: flex; */
+    background-image: url(../imgs/basic_paperplane.png);
+}
+
 .img-btn {
     background-image: url(../imgs/basic_photo.png);
+    margin-left: 25px;
 }
 
 .todo-btn {
     background-image: url(../imgs/basic_todolist_pen.png);
+    margin-left: 25px;
 }
 
 .video-btn {
     background-image: url(../imgs/basic_video.png);
+    margin-left: 25px;
 }

@@ -3,26 +3,32 @@
     flex-direction: column;
     padding: 10px;
     background-color: rgba(251, 94, 94, 0.678);
-    width: 33%;
-    /* height: 250px; */
     border-radius: 10px;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     margin-bottom: 10px;
-    /* object-fit: cover; */
 }
 
 .keep-preview img {
     margin-bottom: 10px;
 }
 
-.modal-panel {
-    display: flex;
-    justify-content: space-around;
-    /* width: 200px; */
-    /* padding: 20px; */
-    /* display: flex; */
+.keep-preview iframe {
+    margin-bottom: 10px;
 }
+
+.keep-preview p {
+    margin-bottom: 20px;
+}
+
+.notes-container div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 15px;
+}
+
+.keep-preview .modal-panel {}
 
 .modal-panel input[type=color] {
     height: 40px;
@@ -41,13 +47,6 @@
 .keep-preview form {
     display: flex;
     padding: 5px;
-}
-
-.notes-container div {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 15px;
 }
 
 

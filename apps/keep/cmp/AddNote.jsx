@@ -29,7 +29,7 @@ export class AddNote extends React.Component {
         return <form onSubmit={(ev) => {
             ev.preventDefault();
             this.onAddTextNote()
-        }}> <input placeholder={placeHolderText} type="text" onInput={this.handleChange} /><button className="icon">+</button></form>
+        }}> <input placeholder={placeHolderText} type="text" onInput={this.handleChange} /><button className="btn add-btn"></button></form>
     }
     
     onAddTextNote = () => {
@@ -37,16 +37,16 @@ export class AddNote extends React.Component {
         var info = { txt: this.state.inputVal, style: { backgroundColor: '#f4ab63' } }
 
         switch (this.state.type) {
-            case 'NoteText': info = { txt: this.state.inputVal, style: { backgroundColor: '#f4ab63' } }
+            case 'NoteText': info = { txt: this.state.inputVal, style: { backgroundColor: '#8cf463' } }
                 break;
-            case 'NoteImg': info = { url: this.state.inputVal, title: 'My image', style: { backgroundColor: '#f4ab63' } }
+            case 'NoteImg': info = { url: this.state.inputVal, title: 'My image', style: { backgroundColor: '#ae63f4' } }
                 break;
             case 'NoteTodos': {
                 const todos = this.state.inputVal.split(',').map(todo => { return { txt: todo, doneAt: null } })
-                info = { label: 'New Todo', todos , style: { backgroundColor: '#f4ab63' }}
+                info = { label: 'New Todo', todos , style: { backgroundColor: '#f463b0' }}
             }
                 break;
-            case 'NoteVideo': info = { url: this.state.inputVal, style: { backgroundColor: '#f4ab63' } }
+            case 'NoteVideo': info = { url: this.state.inputVal, style: { backgroundColor: '#f4f263' } }
                 break;
             
         }

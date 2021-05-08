@@ -131,6 +131,7 @@ export class KeepPreview extends React.Component {
         const value = target.value
         var { note } = this.state
         note.info.style.backgroundColor = value;
+        // console.log(note.info.style.backgroundColor)
         keepService.saveNote(note)
         this.setState({ note })
     }
