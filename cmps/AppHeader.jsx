@@ -5,7 +5,8 @@ const { NavLink, withRouter } = ReactRouterDOM
 class _AppHeader extends React.Component {
     removeEvent;
     state = {
-        bookCount: 0,
+        status: 'close-sidebar',
+        bookCount: 0
     }
 
 
@@ -19,23 +20,25 @@ class _AppHeader extends React.Component {
         this.removeEvent()
     }
 
+    toggleMenu = () => {
+        console.log('im toggling');
+        const newClass = (this.state.status === 'close-sidebar') ? 'open-sidebar' : 'close-sidebar'
+        this.setState({ status: newClass })
+    }
+
+
     render() {
         return (
             <nav className="app-header flex space-around align-center ">
                 <span className="logo">Appsus</span>
-                <ul className="app-main-nav clean-list">
-                    <li><NavLink exact to="/" activeClassName="active-nav">Home</NavLink></li>
-                    <li><NavLink exact to="/about">About</NavLink></li>
-                    <li><NavLink exact to="/mail">Email</NavLink></li>
-                    <li><NavLink exact to="/keep">Keep</NavLink></li>
-                    <li><NavLink exact to="/books">Books</NavLink></li>
-                    {/* <li><button className="btn" onClick={ () => {
-                        this.props.history.goBack()
-                    } }>Back</button></li> */}
+                <ul className={ "app-main-nav clean-list " + this.state.status }>
+                    <NavLink exact to="/" activeClassName="active-nav">Home</NavLink>
+                    <NavLink exact to="/about">About</NavLink>
+                    <NavLink exact to="/mail">Email</NavLink>
+                    <NavLink exact to="/keep">Keep</NavLink>
+                    <NavLink exact to="/books">Books</NavLink>
                 </ul>
-                {/* <span>
-                    Books Available: { this.state.bookCount }
-                </span> */}
+                <button onClick={ this.toggleMenu } className="header-nav-toggle-btn">☰</button>
             </nav>
         )
     }

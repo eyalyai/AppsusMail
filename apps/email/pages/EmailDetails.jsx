@@ -50,10 +50,10 @@ export class EmailDetails extends React.Component {
             <EmailSideBar />
             <section className="email-details-container flex column">
                 <div className="email-details-setting">
-                    <button>foward</button>
+                    {/* <button>foward</button>
                     <button>reply</button>
                     <button>star</button>
-                    <button>mark as unread</button>
+                    <button>mark as unread</button> */}
                     <button onClick={ this.onDelete }>Delete</button>
                 </div>
                 <div className="email-details-header flex column">
