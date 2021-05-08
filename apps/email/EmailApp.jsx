@@ -53,6 +53,9 @@ export class EmailApp extends React.Component {
         emailService.deleteEmail(emailID);
         this.loadEmails()
     }
+    toggleMenu = () => {
+        eventBusService.emit('toggle-menu')
+    }
 
     render() {
         const { emails, filterBy } = this.state
@@ -61,6 +64,8 @@ export class EmailApp extends React.Component {
             <div className="email-app">
                 <header className="email-header flex align-center">
                     <EmailFilter emails={ emails } filterBy={ filterBy } onSetFilter={ this.onSetFilter } />
+                    <span onClick={ this.toggleMenu } hidden className="sidebar-toggle-btn">☰</span>
+
                 </header>
                 <section className="main-email">
                     <div className="sidebar">

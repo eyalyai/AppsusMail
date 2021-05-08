@@ -33,12 +33,14 @@ export class EmailStatus extends React.Component {
     render() {
         return (
             // TODO: add read and unread status
-            <div className="status-wrapper flex">
-                <div className="status-progress-bar">
-                    <span className="progress-bar-fill" >{ this.state.emailCount } Emails </span>
-                </div>
-                <div className="status-progress-bar">
-                    <span className="progress-bar-fill" > { this.state.unreadCount } Unread </span>
+            <div className="flex align-center">
+                <div className="status-wrapper flex">
+                    <div className="status-progress-bar stripes">
+                        <span className="progress-bar-fill" >{ this.state.emailCount } Emails </span>
+                    </div>
+                    <div className="status-progress-bar stripes">
+                        <span className="progress-bar-fill" > { this.state.unreadCount } Unread </span>
+                    </div>
                 </div>
             </div>
         )

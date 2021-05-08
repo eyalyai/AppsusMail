@@ -1,4 +1,5 @@
 import { EmailStatus } from './EmailStatus.jsx'
+import { eventBusService } from "../services/event-bus-service.js"
 export class EmailFilter extends React.Component {
     state = {
         searchBy: 'sender',
@@ -40,7 +41,6 @@ export class EmailFilter extends React.Component {
         return (
             <section className="email-filter flex align-center">
                 <form className="email-filterby flex wrap justify-center" onSubmit={ this.onFilter }>
-
                     <input className="email-filter-ipt" type="text" placeholder={ 'Search by ' + searchBy } value={ filterBy[searchBy] }
                         onChange={ this.handleChange } />
                     <select onChange={ this.onSelect }>

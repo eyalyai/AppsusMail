@@ -1,11 +1,13 @@
 .email-sidebar {
+    margin: 1em 0;
     padding-top: 1em;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     min-width: 200px;
-    height: 100%;
+    height: 100vh;
     border-right: 1px solid #21252957;
+    transform: translateY(-16px);
 }
 
 .add-email-btn {
@@ -77,4 +79,49 @@
 .email-nav ul>img {
     object-fit: cover;
     width: 15px;
+}
+
+@media (max-width: 500px) {
+    .email-sidebar {
+        background-color: #ffffff;
+        position: fixed;
+        height: 100vh;
+        z-index: 100;
+        left: 0;
+        justify-content: flex-start;
+        transition: 0;
+        transition: transform 1s;
+    }
+    .sidebar-toggle-btn {
+        position: fixed;
+        text-align: center;
+        background-color: #77889978;
+        top: 420px;
+        left: 21px;
+        font-size: 2em;
+        border-radius: 20px;
+        width: 48px;
+        height: 48px;
+        display: block;
+        z-index: 999;
+        cursor: pointer;
+    }
+    .email-sidebar.close-sidebar {
+        transform: translateX(-100%);
+    }
+    .email-sidebar.open-sidebar {
+        transform: translateX(0);
+    }
+    /* animation */
+    .menu-btn.hamburger-animite .menu-btn-burger {
+        transform: translateX(-50px);
+        background-color: transparent;
+        box-shadow: none;
+    }
+    .menu-btn.hamburger-animite .menu-btn-burger::before {
+        transform: rotate(45deg) translate(35px, -35px);
+    }
+    .menu-btn.hamburger-animite .menu-btn-burger::after {
+        transform: rotate(-45deg) translate(35px, 35px);
+    }
 }

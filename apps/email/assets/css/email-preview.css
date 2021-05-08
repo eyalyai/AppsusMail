@@ -64,15 +64,15 @@ h3.subject {
 }
 
 .email-preview .expand-txt {
-    color: blue;
+    color: grey;
 }
 
 .email-preview-btns .remove-btn {
     border: none;
+    background-color: transparent;
 }
 
 .email-preview-btns .remove-btn img {
     object-fit: cover;
-    max-width: 2vw;
-    background-color: transparent;
+    max-width: 1.5em;
 }

@@ -39,10 +39,9 @@ html {
 }
 
 .emails-container {
-    margin-top: 1em;
+    margin: 1em 0;
 }
 
 .main-email {
     display: flex;
 }
-
