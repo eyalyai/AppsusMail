@@ -81,11 +81,11 @@ function _createNotes() {
             info: {
                 label: "How was it:",
                 todos: [{
-                        txt: "Do that",
+                        txt: "Wake up",
                         doneAt: null
                     },
                     {
-                        txt: "Do this",
+                        txt: "Start coding",
                         doneAt: 187111111
                     }
                 ],
@@ -101,11 +101,11 @@ function _createNotes() {
             info: {
                 label: "How was it:",
                 todos: [{
-                        txt: "Do that",
+                        txt: "Feed the cats",
                         doneAt: null
                     },
                     {
-                        txt: "Do this",
+                        txt: "Keep coding",
                         doneAt: 187111111
                     }
                 ],
@@ -133,21 +133,18 @@ function _createNotes() {
             info: {
                 label: "How was it:",
                 todos: [{
-                        txt: "Do that",
+                        txt: "Do CSS",
                         doneAt: null
                     },
                     {
-                        txt: "Do this",
+                        txt: "Check GitHub",
                         doneAt: 187111111
                     },
                     {
-                        txt: "Do that",
+                        txt: "Sleep if u can",
                         doneAt: null
                     },
-                    {
-                        txt: "Do that",
-                        doneAt: null
-                    },
+
                 ],
                 style: {
                     backgroundColor: "#475dff"

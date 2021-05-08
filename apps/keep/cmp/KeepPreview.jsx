@@ -27,7 +27,7 @@ export class KeepPreview extends React.Component {
                         keepService.saveNote(props.note)
                         this.loadNote()
                     }}>
-                        <p className={`todo ${todo.doneAt && 'todo-done'}`}>{todo.txt}</p>
+                        <p className={`todo ${todo.doneAt && 'done'}`}>{todo.txt}</p>
                         {todo.doneAt && <span>{Intl.DateTimeFormat('IL-il').format(todo.doneAt)}</span>}
                     </div>
                 })
@@ -131,6 +131,7 @@ export class KeepPreview extends React.Component {
         const value = target.value
         var { note } = this.state
         note.info.style.backgroundColor = value;
+        // console.log(note.info.style.backgroundColor)
         keepService.saveNote(note)
         this.setState({ note })
     }
