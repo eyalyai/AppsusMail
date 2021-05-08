@@ -62,6 +62,10 @@ h3.subject {
     color: #646464;
 }
 
+.email-preview .expand-txt {
+    color: blue;
+}
+
 .email-preview-btns .remove-btn {
     border: none;
 }
