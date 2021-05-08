@@ -31,3 +31,10 @@ html {
     background-position: center;
     background-size: contain;
 }
+
+@media (max-width: 500px) {
+    .app-main-nav>*:not(:first-child) {
+        /* flex-direction: row; */
+        display: none;
+    }
+}

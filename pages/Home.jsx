@@ -11,7 +11,7 @@ export function Home() {
                 </div>
                 <div className="flex column">
                     <span>discover your Email better </span>
-                    <NavLink to="/email">Email app</NavLink>
+                    <NavLink to="/mail">Email app</NavLink>
                 </div>
                 <div className="flex column">
                     <span>Awesome book collection</span>
