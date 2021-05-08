@@ -1,5 +1,15 @@
+* {
+    box-sizing: border-box;
+}
+
 .keep-app {
     text-align: center;
+}
+
+html {
+    margin: 0px;
+    padding: 0px;
+    line-height: 1.25;
 }
 
 .main-keep {
@@ -20,4 +30,11 @@
     background-color: transparent;
     background-position: center;
     background-size: contain;
+}
+
+@media (max-width: 500px) {
+    .app-main-nav>*:not(:first-child) {
+        /* flex-direction: row; */
+        display: none;
+    }
 }
