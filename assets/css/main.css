@@ -1,15 +1,15 @@
-    @import "/assets/css/main-header.css";
-    @import "/apps/books/assets/css/main.css";
-    @import "/apps/email/assets/css/main-email-app.css";
-    @import "/apps/email/assets/css/email-preview.css";
-    @import "/apps/email/assets/css/email-filter.css";
-    @import "/apps/email/assets/css/email-sidebar.css";
-    @import "/apps/email/assets/css/email-details.css";
-    @import "/apps/email/assets/css/email-compose.css";
-    @import "/assets/css/helpers.css";
-    @import "/apps/keep/assets/css/main-keep-app.css";
-    @import "/apps/keep/assets/css/keep-preview.css";
-    @import "/apps/keep/assets/css/add-note.css";
+    @import "main-header.css";
+    @import "helpers.css";
+    @import "../../apps/books/assets/css/main.css";
+    @import "../../apps/email/assets/css/main-email-app.css";
+    @import "../../apps/email/assets/css/email-preview.css";
+    @import "../../apps/email/assets/css/email-filter.css";
+    @import "../../apps/email/assets/css/email-sidebar.css";
+    @import "../../apps/email/assets/css/email-details.css";
+    @import "../../apps/email/assets/css/email-compose.css";
+    @import "../../apps/keep/assets/css/main-keep-app.css";
+    @import "../../apps/keep/assets/css/keep-preview.css";
+    @import "../../apps/keep/assets/css/add-note.css";
     body {
         background-color: #ffffff;
         margin: 0;
@@ -45,7 +45,7 @@
     .blur {
         background: #4a4a4a33;
         /* #4a4a4a33 */
-        backdrop-filter: blur(4px);
+        backdrop-filter: blur(8px);
         height: 100vh;
         width: 100%;
     }
