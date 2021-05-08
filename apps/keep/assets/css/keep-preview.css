@@ -28,8 +28,6 @@
     gap: 15px;
 }
 
-.keep-preview .modal-panel {}
-
 .modal-panel input[type=color] {
     height: 40px;
     width: 40px;
@@ -66,6 +64,10 @@
 .todos-list {
     display: flex;
     flex-direction: column;
+}
+
+.done {
+    text-decoration: line-through;
 }
 
 .edit-btn {

@@ -27,7 +27,7 @@ export class KeepPreview extends React.Component {
                         keepService.saveNote(props.note)
                         this.loadNote()
                     }}>
-                        <p className={`todo ${todo.doneAt && 'todo-done'}`}>{todo.txt}</p>
+                        <p className={`todo ${todo.doneAt && 'done'}`}>{todo.txt}</p>
                         {todo.doneAt && <span>{Intl.DateTimeFormat('IL-il').format(todo.doneAt)}</span>}
                     </div>
                 })
