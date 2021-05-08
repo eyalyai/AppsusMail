@@ -52,7 +52,7 @@ export class EmailCompose extends React.Component {
             <form className="email-compose-form flex column" id="email-compose-form" onSubmit={ this.onSaveEmail }>
                 <div className="email-compose-field email-compose-to">
                     <label htmlFor="to">To:</label>
-                    <input type="email" name="to" id="to" value={ to } required onChange={ this.handleChange } />
+                    <input autoFocus type="email" name="to" id="to" value={ to } required onChange={ this.handleChange } />
                 </div>
                 <div className="email-compose-field email-compose-subject">
                     <label htmlFor="subject">Subject:</label>

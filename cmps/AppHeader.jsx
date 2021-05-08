@@ -38,7 +38,7 @@ class _AppHeader extends React.Component {
                     <NavLink exact to="/keep">Keep</NavLink>
                     <NavLink exact to="/books">Books</NavLink>
                 </ul>
-                <button onClick={ this.toggleMenu } className="header-nav-toggle-btn">☰</button>
+                <button onClick={ this.toggleMenu } hidden className="header-nav-toggle-btn"><img src="assets\img\menu (1).png" alt="☰" /> </button>
             </nav>
         )
     }

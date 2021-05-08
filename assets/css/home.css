@@ -48,13 +48,13 @@
     text-shadow: 5px 5px 35px rgb(43 49 54 / 40%);
     text-decoration: none;
     color: #ffffff;
+    transition: 0.3s;
 }
 
 .home-nav-links a:hover {
     background-color: #fff;
     color: rosybrown;
 }
-
 
 /* backgroundimg */
 

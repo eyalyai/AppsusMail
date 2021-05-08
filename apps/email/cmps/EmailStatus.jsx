@@ -36,10 +36,10 @@ export class EmailStatus extends React.Component {
             <div className="flex align-center">
                 <div className="status-wrapper flex">
                     <div className="status-progress-bar stripes">
-                        <span className="progress-bar-fill" >{ this.state.emailCount } Emails </span>
+                        <span className="progress-bar-fill" style={ { width: '70%' } } >{ this.state.emailCount } Emails </span>
                     </div>
                     <div className="status-progress-bar stripes">
-                        <span className="progress-bar-fill" > { this.state.unreadCount } Unread </span>
+                        <span className="progress-bar-fill" style={ { width: '50%' } } > { this.state.unreadCount } Unread </span>
                     </div>
                 </div>
             </div>

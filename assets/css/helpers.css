@@ -48,3 +48,7 @@
     border: 0;
     background-color: #F1F3F4;
 }
+
+button {
+    transition: 0.3s;
+}

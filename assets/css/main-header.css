@@ -6,7 +6,7 @@
     background-color: rgb(27, 27, 27);
     box-shadow: 0 0 8px 1px #00000085;
     z-index: 100;
-    height: 50px;
+    height: 60px;
     padding: 0 2.5rem;
 }
 
@@ -30,22 +30,12 @@
     height: 100%;
 }
 
-.app-main-nav li {
-    /* display: flex;
-    align-items: center;
-    justify-content: center; */
-    /* height: 100%; */
-}
-
 .app-main-nav a {
     color: #fff;
     text-decoration: none;
     text-align: center;
     font-size: 1.2rem;
     font-weight: 600;
-    /* margin-inline-end: 25px; */
-    /* width: 100%; */
-    /* height: 100%; */
     padding: 13px 12.5px;
 }
 
@@ -56,15 +46,16 @@
     .app-main-nav {
         position: relative;
         right: 0;
-        top: 50px;
+        top: 60px;
         flex-direction: column;
-        height: 100%;
+        /* height: 100%; */
         width: 200px;
         align-items: stretch;
         background-color: #1b1b1b;
         transition: 0;
         transition: transform 1s;
-        /* z-index: 100; */
+        z-index: 100;
+        border-end-start-radius: 50px;
     }
     .app-main-nav a {
         position: relative;
@@ -72,6 +63,9 @@
         flex-direction: column;
         background-color: #1b1b1b;
         z-index: 100;
+    }
+    .app-main-nav a:last-child {
+        border-end-start-radius: 50px;
     }
     .app-main-nav a:hover {
         color: #1b1b1b;
@@ -89,16 +83,26 @@
     }
     .header-nav-toggle-btn {
         position: absolute;
-        text-align: center;
-        background-color: #77889978;
-        top: 0;
+        display: flex;
+        background-color: #fff;
+        top: 5px;
         right: 20px;
         font-size: 2em;
-        border-radius: 20px;
+        border-radius: 50%;
+        border: none;
         width: 48px;
         height: 48px;
-        display: block;
         z-index: 999;
         cursor: pointer;
+    }
+    .header-nav-toggle-btn:hover {
+        background-color: lightcoral;
+    }
+    .header-nav-toggle-btn img {
+        position: relative;
+        height: 30px;
+        width: 100%;
+        margin: 22% auto;
+        object-fit: contain;
     }
 }

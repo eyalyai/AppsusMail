@@ -35,6 +35,6 @@ html {
 @media (max-width: 500px) {
     .app-main-nav>*:not(:first-child) {
         /* flex-direction: row; */
-        display: none;
+        /* display: none; */
     }
 }

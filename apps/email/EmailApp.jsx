@@ -62,11 +62,13 @@ export class EmailApp extends React.Component {
         if (!emails) return <div>Loading...</div>
         return (
             <div className="email-app">
+
                 <header className="email-header flex align-center">
                     <EmailFilter emails={ emails } filterBy={ filterBy } onSetFilter={ this.onSetFilter } />
-                    <span onClick={ this.toggleMenu } hidden className="sidebar-toggle-btn">☰</span>
-
+                    <span onClick={ this.toggleMenu } hidden className="sidebar-toggle-btn">
+                        <img src="apps\email\assets\img\sidebar-menu-btn.png" alt="☰" /></span>
                 </header>
+
                 <section className="main-email">
                     <div className="sidebar">
                         <EmailSideBar emails={ emails } />

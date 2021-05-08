@@ -9,6 +9,8 @@ html {
 .email-app {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: #fff;
 }
 
@@ -39,7 +41,7 @@ html {
 }
 
 .emails-container {
-    margin: 1em 0;
+    margin: 1em;
 }
 
 .main-email {

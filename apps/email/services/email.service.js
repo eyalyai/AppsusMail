@@ -98,18 +98,15 @@ var gEmails = [
     },
 ]
 var gSentEmails = []
-// _createBooks()
 
 
-//TODO: configure filterBy, return emails 
-//readStatue contain true or false
+
 function query(filterBy, byCtg = null) {
     const storageMail = _loadEmailsFromStorage(KEYMAIL)
     var emails;
     if (byCtg) emails = _getEmailByCtg(byCtg)
     else emails = (storageMail) ? storageMail : gEmails
     _sortBySentAt(emails)
-    // console.log('filterBy', filterBy)
 
     if (filterBy) {
         var { all, subject, sender, body } = filterBy

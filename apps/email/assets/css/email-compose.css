@@ -1,11 +1,13 @@
 .compose-container {
-    position: fixed;
-    max-width: 500px;
+    /* position: absolute; */
+    width: 60vw;
     background-color: #f1f3f4;
-    width: 500px;
-    bottom: 2vh;
-    height: 50vh;
-    z-index: 999;
+    /* width: 500; */
+    bottom: 1vh;
+    height: 79vh;
+    margin: 0 1em;
+    z-index: 10;
+    transition: 0.1s;
     box-shadow: 0 8px 10px 1px rgb(0 0 0 / 14%), 0 3px 14px 2px rgb(0 0 0 / 12%), 0 5px 5px -3px rgb(0 0 0 / 20%);
 }
 
@@ -50,6 +52,9 @@
     font-weight: 700;
     border-radius: unset;
     width: 100%;
+    outline: unset;
+    border: unset;
+    background-color: inherit;
 }
 
 .email-compose-field span {
@@ -108,4 +113,12 @@
 .email-compose-btn-container img {
     object-fit: cover;
     width: 20px
+}
+
+@media (max-width: 500px) {
+    .compose-container {
+        margin: 0 1em;
+        align-self: center;
+        width: 80vw;
+    }
 }
