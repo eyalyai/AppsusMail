@@ -46,16 +46,3 @@ export class EmailPreview extends React.Component {
     }
 }
 
-// <section className={ 'mail-preview' + this.getReadClass() }>
-//     <Link className="mail-preview-info" onClick={ this.onToggleRead } to={ `/mail/${mail.mailId}` }>
-//         <h3 className="mail-preview-subject">{ this.getShortTxt(mail.subject, 50) }</h3>
-//         <h3 className="mail-preview-body">{ this.getShortTxt(mail.body, 200) }</h3>
-//         <h3>{ this.getSentAtTime(mail.sentAt) }</h3>
-//     </Link>
-//     <div className="mail-preview-btn-container">
-//         <button className={ 'star-btn' + this.getStarClass() } onClick={ this.onToggleStar } ><i className="far fa-star"></i></button>
-//         <button className="remove-btn" onClick={ this.onRemoveMail } > <i className="far fa-trash-alt"></i> </button>
-//         <button className="read-btn" onClick={ this.onToggleRead } >{ this.getReadIcon() }</button>
-//     </div>
-// </section>
-

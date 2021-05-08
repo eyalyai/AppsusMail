@@ -12,44 +12,4 @@ export class EmailNav extends React.Component {
             </div>
         )
     }
-    // state = {
-    //     emails: null,
-    //     filterBy: null
-    // }
-
-    //     componentDidMount() {
-    //         this.loadEmails()
-
-    //     }
-
-    //     loadEmails = () => {
-    //         emailService.query(this.state.filterBy)
-    //             .then((emails) => {
-    //                 this.setState({ emails: emails })
-    //                 console.log(this.state.emails);
-    //             })
-    //     }
-
-    //     onSetFilter = (filterBy) => {
-    //         this.setState({ filterBy }, this.loadEmails)
-    //     }
-
-    //     render() {
-    //         const { emails, filterBy } = this.state
-    //         if (!emails) return <div>Loading...</div>
-    //         return (
-    //             <div className="email-app">
-    //                 <h1>Email app</h1>
-    //                 {/* TODO: <EmailFilter></EmailFilter> */ }
-    //                 <section className="main-email">
-    //                     <div >
-    //                         <EmailSideBar emails={ emails } />
-    //                     </div>
-    //                     <div className="mail-container">
-    //                         <EmailList emails={ emails } />
-    //                     </div>
-    //                 </section>
-    //             </div>
-    //         )
-    //     }
 }

@@ -54,10 +54,6 @@ export class EmailCompose extends React.Component {
                     <label htmlFor="to">To:</label>
                     <input type="email" name="to" id="to" value={ to } required onChange={ this.handleChange } />
                 </div>
-                {/* <label htmlFor="cc">Cc</label>
-                <input type="email" name="cc" id="cc" value={ cc } onChange={ this.handleChange } />
-                <label htmlFor="Bcc">Bcc</label>
-                <input type="email" name="bcc" id="bcc" value={ Bcc } onChange={ this.handleChange } /> */}
                 <div className="email-compose-field email-compose-subject">
                     <label htmlFor="subject">Subject:</label>
                     <input type="text" name="subject" id="subject" value={ subject } required onChange={ this.handleChange } />

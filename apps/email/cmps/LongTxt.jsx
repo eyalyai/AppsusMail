@@ -10,7 +10,8 @@ export class LongTxt extends React.Component {
     }
 
     toggleRead = (ev) => {
-        !this.state.readMore && ev.preventDefault()
+        // !this.state.readMore && 
+        ev.preventDefault()
         this.setState((prev) => ({ ...prev, readMore: !prev.readMore }))
     }
 
