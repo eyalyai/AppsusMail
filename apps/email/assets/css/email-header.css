@@ -1,0 +1,17 @@
+/* Email-Header */
+
+.email-header {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    /* padding: 1em; */
+    background-color: #e6e6e6;
+}
+
+.email-header h1 {
+    padding: 0 1em;
+}
+
+.email-header h1 {
+    padding: 0 1em;
+}

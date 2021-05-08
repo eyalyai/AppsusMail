@@ -20,7 +20,7 @@ html {
     display: flex;
     align-items: center;
     width: 100vw;
-    padding: 1em;
+    /* padding: 1em; */
     background-color: #e6e6e6;
 }
 
@@ -46,12 +46,3 @@ html {
     display: flex;
 }
 
-.ipt {
-    margin: 0 0 0;
-    padding: 0 0 0;
-    border-radius: 1rem;
-    font-size: 1rem;
-    outline: none;
-    border: 0;
-    background-color: #F1F3F4;
-}

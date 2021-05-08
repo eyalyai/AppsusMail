@@ -109,15 +109,19 @@ function query(filterBy, byCtg = null) {
     if (byCtg) emails = _getEmailByCtg(byCtg)
     else emails = (storageMail) ? storageMail : gEmails
     _sortBySentAt(emails)
-    console.log('filterBy', filterBy)
+    // console.log('filterBy', filterBy)
 
     if (filterBy) {
-        var { subject, sender, body } = filterBy
+        var { all, subject, sender, body } = filterBy
+        // all = (all) ? all.toLowerCase() : ''
         sender = (sender) ? sender.toLowerCase() : ''
         subject = (subject) ? subject.toLowerCase() : ''
         body = (body) ? body.toLowerCase() : ''
         const filteredEmails = emails.filter((email) => {
             return (
+                // email.sender.toLowerCase().includes(all) &&
+                // email.subject.toLowerCase().includes(all) &&
+                // email.body.toLowerCase().includes(all) &&
                 email.sender.toLowerCase().includes(sender) &&
                 email.subject.toLowerCase().includes(subject) &&
                 email.body.toLowerCase().includes(body)

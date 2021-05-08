@@ -63,6 +63,10 @@
 }
 
 .email-nav>*:hover {
+    background-color: #e8eaed;
+}
+
+.email-nav>*:active {
     background-color: #fce8e6;
 }
 

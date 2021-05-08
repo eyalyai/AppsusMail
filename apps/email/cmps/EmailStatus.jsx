@@ -22,7 +22,6 @@ export class EmailStatus extends React.Component {
 
     countData = () => {
         let readCount = 0
-        console.log(this.props);
         const { emails } = this.props
         const emailCount = emails.length
         this.props.emails.forEach(email => {
@@ -34,19 +33,14 @@ export class EmailStatus extends React.Component {
     render() {
         return (
             // TODO: add read and unread status
-            <div>
-                <span>Emails: { this.state.emailCount }</span>
-                <span>unread: { this.state.unreadCount }</span>
+            <div className="status-wrapper flex">
+                <div className="status-progress-bar">
+                    <span className="progress-bar-fill" >{ this.state.emailCount } Emails </span>
+                </div>
+                <div className="status-progress-bar">
+                    <span className="progress-bar-fill" > { this.state.unreadCount } Unread </span>
+                </div>
             </div>
         )
     }
 }
-// componentDidMount() {
-//     this.removeEvent = eventBusService.on('email-count', (emailCount) => {
-//         this.setState({ emailCount })
-//     })
-// }
-
-// ComponentWillUnmount() {
-//     this.removeEvent()
-// }
