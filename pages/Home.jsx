@@ -13,6 +13,10 @@ export function Home() {
                     <span>discover your Email better </span>
                     <NavLink to="/email">Email app</NavLink>
                 </div>
+                <div className="flex column">
+                    <span>Awesome book collection</span>
+                    <span className="flex align-center"><NavLink to="/books">books app</NavLink></span>
+                </div>
             </div>
         </div>
     </section>

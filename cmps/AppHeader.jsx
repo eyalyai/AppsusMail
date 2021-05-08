@@ -28,6 +28,7 @@ class _AppHeader extends React.Component {
                     <li><NavLink exact to="/about">About</NavLink></li>
                     <li><NavLink exact to="/mail">Email</NavLink></li>
                     <li><NavLink exact to="/keep">Keep</NavLink></li>
+                    <li><NavLink exact to="/books">Books</NavLink></li>
                     {/* <li><button className="btn" onClick={ () => {
                         this.props.history.goBack()
                     } }>Back</button></li> */}
