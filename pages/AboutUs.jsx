@@ -2,35 +2,35 @@ const { NavLink, Route, Switch } = ReactRouterDOM
 
 function AboutTeam() {
     return (
-        <div>
+        <div className="team-container">
             <h4>The Team</h4>
-            <ol>
-                <li>Gwen Bar-On</li>
-                <li>Steph Bar-On</li>
-            </ol>
+            <ul>
+                <li>Eyal Yaish</li>
+                <li>Aylam Bar-On</li>
+            </ul>
         </div>
     )
 }
 
 function AboutVision() {
     return (
-        <div>
+        <div className="vision-container">
             <h4>Our Vision</h4>
             <ul>
-                <li>Spread The Magic of Books</li>
-                <li>Sell Books</li>
-                <li>Get people share and review books</li>
+                <li>Finish all the projects before we are 80</li>
+                <li>Make everthing work perfect</li>
+                <li>Do it while having fun 😁</li>
             </ul>
         </div>
     )
 }
 
 export function AboutUs(props) {
-    return <section>
+    return <section className="about-us">
         <h2>About Us</h2>
         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est laudantium earum veniam in aspernatur nam fuga tempore! Doloribus, possimus nesciunt.</p>
 
-        <nav>
+        <nav className="team">
             <NavLink to="/about/team">Team</NavLink>
             <NavLink to="/about/vision">Vision</NavLink>
         </nav>

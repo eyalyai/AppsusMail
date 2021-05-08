@@ -39,6 +39,10 @@
     padding: 13px 12.5px;
 }
 
+.header-nav-toggle-btn {
+    display: none;
+}
+
 @media (max-width: 666px) {
     .app-header {
         padding: 0 0 0 2.5rem;
