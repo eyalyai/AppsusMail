@@ -34,13 +34,23 @@
     color: #fff;
     text-decoration: none;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 600;
     padding: 13px 12.5px;
 }
 
 .header-nav-toggle-btn {
     display: none;
+}
+
+.app-main-nav a:hover {
+    color: #1b1b1b;
+    background-color: darkgray;
+    border-block-end: 3px groove darkblue;
+}
+
+.app-main-nav a:active {
+    border-block-end: 3px groove darkblue;
 }
 
 @media (max-width: 666px) {
@@ -75,8 +85,10 @@
         color: #1b1b1b;
         background-color: darkgray;
         border-inline-start: 3px groove darkblue;
+        border-block-end: none;
     }
     .app-main-nav a:active {
+        border-block-end: none;
         border-inline-start: 3px groove darkblue;
     }
     .app-main-nav.close-sidebar {
