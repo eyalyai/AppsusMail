@@ -26,18 +26,20 @@ function AboutVision() {
 }
 
 export function AboutUs(props) {
-    return <section className="about-us">
-        <h2>About Us</h2>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est laudantium earum veniam in aspernatur nam fuga tempore! Doloribus, possimus nesciunt.</p>
+    return <div className="background2">
+        <section className="about-us blur">
+            <h2>About Us</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est laudantium earum veniam in aspernatur nam fuga tempore! Doloribus, possimus nesciunt.</p>
 
-        <nav className="team">
-            <NavLink to="/about/team">Team</NavLink>
-            <NavLink to="/about/vision">Vision</NavLink>
-        </nav>
+            <nav className="team">
+                <NavLink to="/about/team">Team</NavLink>
+                <NavLink to="/about/vision">Vision</NavLink>
+            </nav>
 
-        <Switch>
-            <Route component={ AboutTeam } path="/about/team" />
-            <Route component={ AboutVision } path="/about/vision" />
-        </Switch>
-    </section>
+            <Switch>
+                <Route component={ AboutTeam } path="/about/team" />
+                <Route component={ AboutVision } path="/about/vision" />
+            </Switch>
+        </section>
+    </div>
 }
