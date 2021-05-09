@@ -29,6 +29,7 @@ export class EmailCompose extends React.Component {
 
     onDeleteCompose = () => {
         eventBusService.emit('add-email')
+
     }
 
     handleChange = ({ target }) => {
@@ -66,7 +67,7 @@ export class EmailCompose extends React.Component {
             </form>
             <div className="email-compose-btn-container flex space-between">
                 <button className="send-email-btn" form="email-compose-form" type="submit" ><img src="apps/email/assets/img/send.png" alt="send" /></button>
-                <button className="goback" onClick={ () => this.onDeleteCompose }><img src="apps/email/assets/img/delete.png" alt="delete" /></button>
+                <button className="goback-btn" onClick={ () => this.onDeleteCompose }><img src="apps/email/assets/img/delete.png" alt="delete" /></button>
             </div>
         </div>
 
